@@ -1,0 +1,18 @@
+.card {
+  background-color: #fafaf8;
+  border: 1px solid #e8e1d9;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card.interactive {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card.interactive:hover {
+  border-color: #d4c9be;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #5c3d2e;
+}
+
+.percentage {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #5c3d2e;
+}
+
+.bar {
+  width: 100%;
+  background-color: #e8e1d9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #d4c9be;
+}
+
+.bar.small {
+  height: 6px;
+}
+
+.bar.medium {
+  height: 8px;
+}
+
+.bar.large {
+  height: 12px;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c89068 0%, #a87c5f 100%);
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
