@@ -1,0 +1,169 @@
+.practice {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a2520;
+  margin: 0 0 0.5rem 0;
+  font-family: Georgia, serif;
+}
+
+.description {
+  font-size: 1rem;
+  color: #7a6f63;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e8e1d9;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tab {
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  color: #7a6f63;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: #5c3d2e;
+}
+
+.tab.active {
+  color: #5c3d2e;
+  border-bottom-color: #5c3d2e;
+}
+
+.content {
+  width: 100%;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.methodSelector {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.timerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+.timerLabel {
+  font-size: 0.875rem;
+  color: #a09a8f;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.timerDisplay {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #5c3d2e;
+  font-family: 'Monaco', 'Courier New', monospace;
+  letter-spacing: 0.1em;
+}
+
+.timerTarget {
+  font-size: 1rem;
+  color: #7a6f63;
+  margin: 0;
+}
+
+.bloomInfo {
+  background-color: #f0ede9;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+.bloomInfo p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #5c3d2e;
+  font-weight: 600;
+}
+
+.timerControls {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.logForm,
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.logForm h3,
+.calculator h3 {
+  margin: 0;
+  color: #2a2520;
+  font-size: 1.125rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.result {
+  background-color: #f0ede9;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.result p {
+  margin: 0;
+  font-size: 1rem;
+  color: #5c3d2e;
+}
+
+.result strong {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .practice {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+}
