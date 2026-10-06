@@ -324,6 +324,7 @@ export const XP = {
   CONTROL_TEST_PASS: 250,
   ATTESTATION_PASS: 600,
   DRILL_CORRECT: 10,
+  TRAINING_COMPLETE: 80,
 } as const;
 
 export function getStepsByLevel(level: LevelId): Step[] {

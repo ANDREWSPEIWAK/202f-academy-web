@@ -1,0 +1,231 @@
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.summaryCard {
+  background: var(--coffee-deep);
+  border-color: transparent;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.summaryValue {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--wasabi);
+  font-variant-numeric: tabular-nums;
+}
+
+.summaryLabel {
+  margin: 2px 0 0;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(247, 253, 255, 0.6);
+}
+
+.summaryMeta {
+  text-align: right;
+}
+
+.summaryCount {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: #f7fdff;
+  font-variant-numeric: tabular-nums;
+}
+
+.summaryMetaLabel {
+  font-size: 11px;
+  color: rgba(247, 253, 255, 0.6);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skillCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skillTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.skillName {
+  margin: 0;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.skillValue {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.trend {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.trend_up {
+  color: var(--success);
+}
+
+.trend_stable {
+  color: var(--text-muted);
+}
+
+.trend_down {
+  color: var(--heat);
+}
+
+.trend_none {
+  color: var(--text-faint);
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 76px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+}
+
+.barLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.barValue {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.noData {
+  color: var(--text-faint);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+
+.confidence {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.confidenceLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.dotOn {
+  background: var(--accent);
+}
+
+.weak {
+  font-size: 12px;
+  color: var(--rust);
+}
+
+.recommendation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px dashed var(--border-strong);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.recommendation:hover {
+  background: var(--wasabi-soft);
+  border-color: var(--accent);
+}
+
+.recLabel {
+  min-width: 0;
+}
+
+.recArrow {
+  color: var(--accent);
+  flex-shrink: 0;
+}

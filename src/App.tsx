@@ -13,6 +13,10 @@ import Profile from './screens/Profile';
 import Discipline from './screens/Discipline';
 import Wheel from './screens/Wheel';
 import Admin from './screens/Admin';
+import Skills from './screens/Skills';
+import Training from './screens/Training';
+import Journal from './screens/Journal';
+import Certification from './screens/Certification';
 import { useAuthStore } from './store/authStore';
 import './App.css';
 
@@ -56,6 +60,10 @@ function App() {
       {activeSection === 'discipline' && <Discipline />}
       {activeSection === 'wheel' && <Wheel />}
       {activeSection === 'admin' && <Admin />}
+      {activeSection === 'skills' && <Skills onNavigate={navigate} />}
+      {activeSection === 'training' && <Training />}
+      {activeSection === 'journal' && <Journal />}
+      {activeSection === 'certification' && <Certification />}
     </Layout>
   );
 }

@@ -15,7 +15,11 @@ export type NavSection =
   | 'profile'
   | 'discipline'
   | 'wheel'
-  | 'admin';
+  | 'admin'
+  | 'skills'
+  | 'training'
+  | 'journal'
+  | 'certification';
 
 const ICONS: Record<string, React.ReactNode> = {
   home: (
@@ -59,7 +63,7 @@ const PRIMARY_TABS: { id: NavSection; labelKey: string }[] = [
 ];
 
 /** Секции, которые подсвечивают вкладку More */
-const MORE_SECTIONS: NavSection[] = ['more', 'library', 'trainer', 'practice', 'profile', 'discipline', 'wheel', 'admin'];
+const MORE_SECTIONS: NavSection[] = ['more', 'library', 'trainer', 'practice', 'profile', 'discipline', 'wheel', 'admin', 'skills', 'training', 'journal', 'certification'];
 
 interface LayoutProps {
   activeSection: NavSection;

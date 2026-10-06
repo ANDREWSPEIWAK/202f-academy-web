@@ -11,6 +11,8 @@ import { useProgressStore, getStepStatus } from '../store/progressStore';
 import { useAuthStore, listUsers } from '../store/authStore';
 import { useAdminStore, Assignment } from '../store/adminStore';
 import { errorRate } from '../engine/testingEngine';
+import { computeSkillMatrix, averageSkillValue } from '../data/skillMatrix';
+import { useTrainingStore, summarizeAll } from '../store/trainingStore';
 
 const STATUS_LABEL: Record<string, string> = {
   locked: 'Заблокирована',
@@ -55,6 +57,15 @@ const Admin: React.FC = () => {
   const totalLessons = STEPS.reduce((acc, s) => acc + s.lessonIds.length, 0);
   const checklistTotal = STEPS.reduce((acc, s) => acc + s.checklist.length, 0);
   const checklistDone = Object.values(state.checklist).filter(Boolean).length;
+
+  // Аналитика навыков: матрица по данным устройства + главный разрыв
+  const trainingAttempts = useTrainingStore((s) => s.attempts);
+  const skillMetrics = useMemo(
+    () => computeSkillMatrix(state.categoryStats, state.testResults, summarizeAll(trainingAttempts)),
+    [state.categoryStats, state.testResults, trainingAttempts]
+  );
+  const avgSkill = averageSkillValue(skillMetrics);
+  const mainGap = [...skillMetrics].sort((a, b) => a.value - b.value)[0];
 
   if (user?.role !== 'admin') {
     return (
@@ -161,6 +172,26 @@ const Admin: React.FC = () => {
           </Card>
         </section>
       )}
+
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Аналитика навыков</h2>
+        <Card>
+          <div className={styles.skillGrid}>
+            {skillMetrics.map((m) => (
+              <div key={m.def.id} className={styles.skillCell}>
+                <span className={styles.skillCellValue}>{m.value}%</span>
+                <span className={styles.skillCellName}>{m.def.nameRu}</span>
+                <ProgressBar value={m.value} showLabel={false} size="small" />
+              </div>
+            ))}
+          </div>
+          <p className={styles.hint}>
+            Средний навык: {avgSkill}%. Главный разрыв: {mainGap ? mainGap.def.nameRu.toLowerCase() : '—'}
+            {mainGap && mainGap.weakAreas.length > 0 ? ` (${mainGap.weakAreas.join(', ').toLowerCase()})` : ''}.
+            Рекомендация: назначить тренажёр или практическую тренировку по этой теме перед допуском к аттестации.
+          </p>
+        </Card>
+      </section>
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Назначить работу</h2>

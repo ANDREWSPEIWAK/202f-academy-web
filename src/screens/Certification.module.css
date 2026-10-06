@@ -1,0 +1,144 @@
+.certification {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.levels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.levelCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.levelCertified {
+  border-color: var(--success);
+  background: linear-gradient(0deg, var(--success-soft), var(--success-soft)), var(--surface-raised);
+}
+
+.levelTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.levelName {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.levelSubtitle {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.reqs {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.reqRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reqCheck {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  font-size: 11px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.reqCheckOn {
+  background: var(--success);
+  border-color: var(--success);
+  color: #f7fdff;
+}
+
+.reqLabel {
+  flex: 1;
+  font-size: 13px;
+  min-width: 0;
+}
+
+.reqLabelDone {
+  color: var(--text-muted);
+}
+
+.reqDetail {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.certificate {
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--coffee-deep);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.certLabel {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(247, 253, 255, 0.6);
+}
+
+.certNumber {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--wasabi);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-faint);
+  line-height: 1.5;
+}

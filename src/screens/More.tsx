@@ -18,6 +18,49 @@ const More: React.FC<MoreProps> = ({ onNavigate }) => {
 
   const items: { id: NavSection; labelKey: string; desc: string; icon: React.ReactNode; adminOnly?: boolean }[] = [
     {
+      id: 'skills',
+      labelKey: 'nav.skills',
+      desc: 'Матрица навыков: теория, практика, тренды',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 20V14M9 20V9M14 20v-8M19 20V5" />
+        </svg>
+      ),
+    },
+    {
+      id: 'training',
+      labelKey: 'nav.training',
+      desc: 'Практические задания с самооценкой',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6 4v16M18 4v16" />
+          <path d="M6 8h12M6 16h12" />
+        </svg>
+      ),
+    },
+    {
+      id: 'journal',
+      labelKey: 'nav.journal',
+      desc: 'Лабораторная тетрадь тренировок',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 4h13a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5z" />
+          <path d="M9 4v16M13 9h3M13 13h3" />
+        </svg>
+      ),
+    },
+    {
+      id: 'certification',
+      labelKey: 'nav.certification',
+      desc: 'Уровни, требования и сертификаты',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="9" r="5" />
+          <path d="m9 13-2 8 5-3 5 3-2-8" />
+        </svg>
+      ),
+    },
+    {
       id: 'profile',
       labelKey: 'nav.profile',
       desc: 'XP, ранги, история тестов',
