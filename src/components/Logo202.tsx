@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 interface Logo202Props {
   size?: number;
@@ -8,47 +8,55 @@ interface Logo202Props {
 }
 
 /**
- * Изометрический кубический монограм: чёрно-белый гексагон с буквами на гранях.
- * Сверху «0» (вместо «P» референса), слева «N», справа «S».
+ * Изометрический кубический монограм из трёх сплошных граней с жирными
+ * скруглёнными буквами-вырезами: сверху «0», слева «N», справа «S».
  * Рисуется через currentColor — на тёмных фонах остаётся белым.
  */
-const Logo202: React.FC<Logo202Props> = ({ size = 28, className }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 100 100"
-    fill="none"
-    stroke="currentColor"
-    className={className}
-    aria-hidden="true"
-    style={{ color: 'inherit' }}
-  >
-    {/* Внешний контур куба */}
-    <path
-      d="M50 5 L89 27.5 V72.5 L50 95 L11 72.5 V27.5 Z"
-      strokeWidth="5"
-      strokeLinejoin="miter"
-    />
+const Logo202: React.FC<Logo202Props> = ({ size = 28, className }) => {
+  const maskId = `logo202-${useId().replace(/:/g, '')}`;
 
-    {/* Рёбра между гранями */}
-    <path d="M11 27.5 L50 50 L89 27.5 M50 50 V95" strokeWidth="2.6" strokeLinejoin="miter" />
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      className={className}
+      aria-hidden="true"
+      style={{ color: 'inherit' }}
+    >
+      <defs>
+        <mask id={maskId} maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+          <rect width="100" height="100" fill="#fff" />
+          <g fill="none" stroke="#000" strokeWidth="13" strokeLinecap="round" strokeLinejoin="round">
+            {/* Верхняя грань: «0» */}
+            <g transform="matrix(0.39 -0.225 0.39 0.225 11 27.5)">
+              <ellipse cx="50" cy="50" rx="16" ry="27" />
+            </g>
+            {/* Левая грань: «N» */}
+            <g transform="matrix(0.39 0.225 0 0.45 11 27.5)">
+              <path d="M30 78 V22 L70 78 V22" />
+            </g>
+            {/* Правая грань: «S» */}
+            <g transform="matrix(0.39 -0.225 0 0.45 50 50)">
+              <path d="M72 24 H32 V50 H68 V76 H28" />
+            </g>
+          </g>
+        </mask>
+      </defs>
 
-    {/* Верхняя грань: «0» + сплошная полоса у правого ребра */}
-    <g transform="matrix(0.39 -0.225 0.39 0.225 11 27.5)">
-      <rect x="22" y="18" width="44" height="64" rx="22" strokeWidth="12" />
-      <rect x="82" y="14" width="18" height="72" fill="currentColor" stroke="none" />
-    </g>
-
-    {/* Левая грань: «N» */}
-    <g transform="matrix(0.39 0.225 0 0.45 11 27.5)">
-      <path d="M24 86 V16 L76 86 V16" strokeWidth="12" strokeLinejoin="miter" />
-    </g>
-
-    {/* Правая грань: «S» */}
-    <g transform="matrix(0.39 -0.225 0 0.45 50 50)">
-      <path d="M78 20 H26 V48 H74 V82 H22" strokeWidth="12" strokeLinejoin="miter" />
-    </g>
-  </svg>
-);
+      <g
+        mask={`url(#${maskId})`}
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinejoin="round"
+      >
+        <polygon points="17.2,27.5 50,8.7 82.8,27.5 50,45.5" />
+        <polygon points="13.1,34.3 45.9,52.3 45.9,89.1 13.1,70.3" />
+        <polygon points="54.1,52.3 86.9,34.3 86.9,70.3 54.1,89.1" />
+      </g>
+    </svg>
+  );
+};
 
 export default Logo202;
