@@ -2,63 +2,52 @@ import React from 'react';
 
 interface Logo202Props {
   size?: number;
-  /** Монохромный режим — для водяных знаков */
+  /** Сохранён для совместимости: логотип всегда рисуется currentColor. */
   mono?: boolean;
   className?: string;
 }
 
-/** Изометрический кубический монограм «202»: гексагон, складывающийся в цифры 2-0-2. */
-const Logo202: React.FC<Logo202Props> = ({ size = 28, mono = false, className }) => (
+/**
+ * Изометрический кубический монограм: чёрно-белый гексагон с буквами на гранях.
+ * Сверху «0» (вместо «P» референса), слева «N», справа «S».
+ * Рисуется через currentColor — на тёмных фонах остаётся белым.
+ */
+const Logo202: React.FC<Logo202Props> = ({ size = 28, className }) => (
   <svg
     width={size}
     height={size}
-    viewBox="0 0 48 48"
+    viewBox="0 0 100 100"
     fill="none"
+    stroke="currentColor"
     className={className}
     aria-hidden="true"
+    style={{ color: 'inherit' }}
   >
-    {/* Грани куба */}
-    <polygon points="24,4 41.3,14 24,24 6.7,14" fill={mono ? 'currentColor' : '#c9f24b'} opacity={mono ? 0.9 : 1} />
-    <polygon points="6.7,14 24,24 24,44 6.7,34" fill={mono ? 'currentColor' : '#6c5ce7'} opacity={mono ? 0.55 : 1} />
-    <polygon points="24,24 41.3,14 41.3,34 24,44" fill={mono ? 'currentColor' : '#17140f'} opacity={mono ? 0.3 : 1} />
-
-    {/* Ребра — каркас куба */}
+    {/* Внешний контур куба */}
     <path
-      d="M24 4 41.3 14 41.3 34 24 44 6.7 34 6.7 14Z M6.7 14 24 24 41.3 14 M24 24V44"
-      stroke={mono ? 'currentColor' : '#17140f'}
-      strokeWidth="1.6"
-      strokeLinejoin="round"
-      fill="none"
+      d="M50 5 L89 27.5 V72.5 L50 95 L11 72.5 V27.5 Z"
+      strokeWidth="5"
+      strokeLinejoin="miter"
     />
 
-    {/* «0» — кольцо на верхней грани */}
-    <ellipse cx="24" cy="14" rx="5.2" ry="2.9" stroke={mono ? 'currentColor' : '#17140f'} strokeWidth="2.2" fill="none" />
+    {/* Рёбра между гранями */}
+    <path d="M11 27.5 L50 50 L89 27.5 M50 50 V95" strokeWidth="2.6" strokeLinejoin="miter" />
 
-    {/* «2» на левой грани */}
-    <text
-      x="0"
-      y="0"
-      transform="translate(9.2 30.5) skewY(26)"
-      fontFamily="'Space Grotesk', sans-serif"
-      fontWeight="700"
-      fontSize="11"
-      fill={mono ? 'currentColor' : '#f2eee6'}
-    >
-      2
-    </text>
+    {/* Верхняя грань: «0» + сплошная полоса у правого ребра */}
+    <g transform="matrix(0.39 -0.225 0.39 0.225 11 27.5)">
+      <rect x="22" y="18" width="44" height="64" rx="22" strokeWidth="12" />
+      <rect x="82" y="14" width="18" height="72" fill="currentColor" stroke="none" />
+    </g>
 
-    {/* «2» на правой грани */}
-    <text
-      x="0"
-      y="0"
-      transform="translate(28.4 39.5) skewY(-26)"
-      fontFamily="'Space Grotesk', sans-serif"
-      fontWeight="700"
-      fontSize="11"
-      fill={mono ? 'currentColor' : '#f2eee6'}
-    >
-      2
-    </text>
+    {/* Левая грань: «N» */}
+    <g transform="matrix(0.39 0.225 0 0.45 11 27.5)">
+      <path d="M24 86 V16 L76 86 V16" strokeWidth="12" strokeLinejoin="miter" />
+    </g>
+
+    {/* Правая грань: «S» */}
+    <g transform="matrix(0.39 -0.225 0 0.45 50 50)">
+      <path d="M78 20 H26 V48 H74 V82 H22" strokeWidth="12" strokeLinejoin="miter" />
+    </g>
   </svg>
 );
 

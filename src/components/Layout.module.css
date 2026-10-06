@@ -28,6 +28,7 @@
   width: 40px;
   height: 40px;
   background: var(--coffee-deep);
+  color: #ffffff;
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
 }
