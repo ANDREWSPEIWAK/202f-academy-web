@@ -1,31 +1,46 @@
-import React, { useState } from 'react';
-import Layout from './components/Layout';
-import Dashboard from './screens/Dashboard';
-import Academy from './screens/Academy';
+import { useState } from 'react';
+import Layout, { NavSection } from './components/Layout';
+import Home from './screens/Home';
+import Path from './screens/Path';
 import Tests from './screens/Tests';
 import Library from './screens/Library';
 import Trainer from './screens/Trainer';
 import Practice from './screens/Practice';
+import Profile from './screens/Profile';
+import Admin from './screens/Admin';
 import './App.css';
 
-type NavSection = 'academy' | 'tests' | 'library' | 'trainer' | 'practice';
-
 function App() {
-  const [activeSection, setActiveSection] = useState<NavSection>('academy');
-  const [showDashboard, setShowDashboard] = useState(true);
+  const [activeSection, setActiveSection] = useState<NavSection>('home');
+  const [pathStepId, setPathStepId] = useState<string | null>(null);
+  const [testId, setTestId] = useState<string | null>(null);
+
+  const openStep = (stepId: string) => {
+    setPathStepId(stepId);
+    setActiveSection('path');
+  };
+
+  const goToTest = (id: string) => {
+    setTestId(id);
+    setActiveSection('tests');
+  };
+
+  const navigate = (section: NavSection) => {
+    setPathStepId(null);
+    setTestId(null);
+    setActiveSection(section);
+  };
 
   return (
-    <Layout activeSection={activeSection} onNavigate={setActiveSection}>
-      {showDashboard && activeSection === 'academy' && (
-        <div onClick={() => setShowDashboard(false)} style={{ cursor: 'pointer' }}>
-          <Dashboard onNavigate={setActiveSection} />
-        </div>
-      )}
-      {!showDashboard && activeSection === 'academy' && <Academy />}
-      {activeSection === 'tests' && <Tests />}
+    <Layout activeSection={activeSection} onNavigate={navigate}>
+      {activeSection === 'home' && <Home onNavigate={navigate} onOpenStep={openStep} />}
+      {activeSection === 'path' && <Path initialStepId={pathStepId} onGoToTest={goToTest} />}
+      {activeSection === 'tests' && <Tests initialTestId={testId} />}
       {activeSection === 'library' && <Library />}
       {activeSection === 'trainer' && <Trainer />}
       {activeSection === 'practice' && <Practice />}
+      {activeSection === 'profile' && <Profile />}
+      {activeSection === 'admin' && <Admin />}
     </Layout>
   );
 }

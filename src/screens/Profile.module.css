@@ -1,0 +1,232 @@
+.profile {
+  padding: 1.25rem 1rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.35rem 0;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.summaryCard {
+  box-shadow: var(--shadow-md);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.summaryBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.summaryValue {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--coffee);
+}
+
+.summaryLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.sectionHint {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.levelsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.levelCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.1rem;
+}
+
+.level_aqua {
+  border-left: 3px solid var(--aqua);
+}
+
+.level_heat {
+  border-left: 3px solid var(--heat);
+}
+
+.level_rust {
+  border-left: 3px solid var(--rust);
+}
+
+.levelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.levelName {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.1rem 0;
+}
+
+.levelSubtitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.stepsRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.stepDot {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.5rem 0.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.dot_completed {
+  background: var(--success-soft);
+  border-color: var(--success);
+}
+
+.dot_in_progress {
+  background: var(--aqua-soft);
+  border-color: var(--aqua);
+}
+
+.dot_available {
+  border-color: var(--heat);
+}
+
+.dot_locked {
+  opacity: 0.55;
+}
+
+.stepDotIndex {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.stepDotMark {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.achievements {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0.55;
+}
+
+.achievementUnlocked {
+  opacity: 1;
+  border-left: 3px solid var(--heat);
+}
+
+.achievementIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--heat-soft);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.achievementName {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink);
+  margin: 0 0 0.1rem 0;
+}
+
+.achievementDesc {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.dataText {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0 0 0.75rem 0;
+}
+
+@media (min-width: 640px) {
+  .achievements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

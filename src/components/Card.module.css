@@ -1,18 +1,23 @@
 .card {
-  background-color: #fafaf8;
-  border: 1px solid #e8e1d9;
-  border-radius: 12px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
   padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
 }
 
 .card.interactive {
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card.interactive:hover {
-  border-color: #d4c9be;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
+}
+
+.card.interactive:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }

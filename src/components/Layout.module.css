@@ -1,0 +1,129 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 253, 249, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brandMark {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--surface);
+  background: linear-gradient(135deg, var(--coffee) 0%, var(--coffee-deep) 100%);
+  padding: 0.3rem 0.55rem;
+  border-radius: 8px;
+  letter-spacing: 0.03em;
+  box-shadow: var(--shadow-sm);
+}
+
+.brandName {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.adminLink {
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 36px;
+  transition: all 0.2s ease;
+}
+
+.adminLink:hover {
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabBar {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 253, 249, 0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+  padding: 0.35rem 0.25rem calc(0.35rem + env(safe-area-inset-bottom));
+  flex-shrink: 0;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  background: none;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  min-width: 60px;
+  min-height: 48px;
+  transition: all 0.2s ease;
+}
+
+.tabIcon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.tabLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tabActive {
+  color: var(--coffee);
+  background: var(--coffee-tint);
+}
+
+@media (min-width: 768px) {
+  .tabBar {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .tab {
+    flex-direction: row;
+    gap: 0.45rem;
+    min-width: auto;
+  }
+
+  .tabLabel {
+    font-size: 0.85rem;
+  }
+
+  .content {
+    padding: 0 1rem;
+  }
+}

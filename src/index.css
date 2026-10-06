@@ -1,3 +1,44 @@
+/* ===== BaristaOS 202f — дизайн-токены =====
+   Industrial DNA 202f: тёплая кофейная база, яркие акценты
+   aqua / heat / rust, лёгкий фон с warm undertone и glow. */
+
+:root {
+  /* Фон и поверхности */
+  --bg: #f7f2ea;
+  --surface: #fffdf9;
+  --surface-raised: #ffffff;
+
+  /* Границы */
+  --border: #e9dfd2;
+  --border-strong: #d6c7b4;
+
+  /* Текст */
+  --ink: #241c15;
+  --ink-soft: #6f6255;
+
+  /* Кофейная база */
+  --coffee: #5c3d2e;
+  --coffee-deep: #3a261b;
+  --coffee-tint: rgba(92, 61, 46, 0.08);
+
+  /* Яркие акценты */
+  --aqua: #0aa2b8;
+  --aqua-soft: rgba(10, 162, 184, 0.12);
+  --heat: #e2632f;
+  --heat-soft: rgba(226, 99, 47, 0.13);
+  --rust: #b4552d;
+  --rust-soft: rgba(180, 85, 45, 0.15);
+
+  /* Статусы */
+  --success: #2e8b57;
+  --success-soft: rgba(46, 139, 87, 0.12);
+
+  /* Глубина */
+  --shadow-sm: 0 1px 2px rgba(36, 28, 21, 0.06), 0 2px 6px rgba(36, 28, 21, 0.07);
+  --shadow-md: 0 2px 4px rgba(36, 28, 21, 0.07), 0 8px 20px rgba(36, 28, 21, 0.1);
+  --shadow-lg: 0 4px 8px rgba(36, 28, 21, 0.08), 0 16px 36px rgba(36, 28, 21, 0.14);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,16 +51,27 @@ body,
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f1ed;
-  color: #2a2520;
+  color: var(--ink);
   line-height: 1.6;
 }
 
 body {
   overflow: hidden;
+  background-color: var(--bg);
+  /* Живой фон: тёплая база + aqua/rust glow */
+  background-image:
+    radial-gradient(ellipse 60% 40% at 8% -5%, rgba(10, 162, 184, 0.09), transparent),
+    radial-gradient(ellipse 55% 40% at 95% 105%, rgba(180, 85, 45, 0.09), transparent),
+    radial-gradient(ellipse 40% 30% at 85% 10%, rgba(226, 99, 47, 0.05), transparent);
+  background-attachment: fixed;
 }
 
 #root {
   width: 100%;
   height: 100vh;
+}
+
+::selection {
+  background: var(--aqua-soft);
+  color: var(--coffee-deep);
 }

@@ -1,0 +1,396 @@
+.path {
+  padding: 1.25rem 1rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.35rem 0;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.levelSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  background: var(--surface);
+}
+
+.level_aqua {
+  border-top: 3px solid var(--aqua);
+}
+
+.level_heat {
+  border-top: 3px solid var(--heat);
+}
+
+.level_rust {
+  border-top: 3px solid var(--rust);
+}
+
+.levelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.levelName {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.15rem 0;
+}
+
+.levelSubtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.levelDesc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stepCard {
+  padding: 0.85rem;
+}
+
+.stepLocked {
+  opacity: 0.62;
+}
+
+.stepDone {
+  border-left: 3px solid var(--success);
+}
+
+.stepRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.stepIndex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--coffee-tint);
+  color: var(--coffee);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.stepInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stepTitle {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.stepFocus {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.stepLockHint {
+  font-size: 0.75rem;
+  color: var(--rust);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== Деталь ступени ===== */
+
+.detail {
+  padding: 1.25rem 1rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.backButton {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--coffee);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  min-height: 44px;
+}
+
+.detailHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailLevel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--aqua);
+  margin: 0;
+}
+
+.detailTitle {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.detailFocus {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.blockTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.blockHint {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.lessons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.lessonCard {
+  padding: 0;
+  overflow: hidden;
+}
+
+.lessonDone {
+  border-left: 3px solid var(--success);
+}
+
+.lessonHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  min-height: 48px;
+}
+
+.lessonMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--coffee-tint);
+  color: var(--coffee);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.lessonTitle {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.lessonBody {
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.theory {
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.lessonMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  background: var(--coffee-tint);
+  border-radius: 10px;
+}
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.metaTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--coffee);
+  margin: 0;
+}
+
+.metaList {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.metaText {
+  font-size: 0.85rem;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  cursor: pointer;
+  padding: 0.35rem 0;
+  min-height: 44px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 0.15rem;
+  accent-color: var(--coffee);
+  flex-shrink: 0;
+}
+
+.checkText {
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.checkTextDone {
+  text-decoration: line-through;
+  color: var(--ink-soft);
+}
+
+.testCard {
+  box-shadow: var(--shadow-md);
+}
+
+.testRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.testStatus {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin: 0 0 0.25rem 0;
+}
+
+.testHint {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.doneCard {
+  border-left: 3px solid var(--success);
+}
+
+.doneText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--success);
+  margin: 0;
+}
