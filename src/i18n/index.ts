@@ -6,7 +6,7 @@ export type Lang = 'ru' | 'en';
 type Dict = Record<string, string>;
 
 const ru: Dict = {
-  'app.name': 'BaristaOS Academy',
+  'app.name': '202 Barista Academy',
   'app.tagline': 'Академическая система подготовки бариста',
 
   // Nav
@@ -160,7 +160,7 @@ const ru: Dict = {
   // More
   'more.title': 'Ещё',
   'more.language': 'Язык интерфейса',
-  'more.contentNote': 'Учебный контент (уроки и банк вопросов) пока на русском — локализация контента в следующей итерации.',
+  'more.contentNote': 'Учебный контен�� (уроки и банк вопросов) пока на русском — локализация контента в следующей итерации.',
 
   // Skills
   'skills.title': 'Матрица навыков',
@@ -255,7 +255,7 @@ const ru: Dict = {
 };
 
 const en: Dict = {
-  'app.name': 'BaristaOS Academy',
+  'app.name': '202 Barista Academy',
   'app.tagline': 'Academic barista training system',
 
   'nav.home': 'Home',

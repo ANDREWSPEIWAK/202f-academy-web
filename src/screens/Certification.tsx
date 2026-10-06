@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import Card from '../components/Card';
+import Logo202 from '../components/Logo202';
 import Badge from '../components/Badge';
 import ProgressBar from '../components/ProgressBar';
 import styles from './Certification.module.css';
@@ -179,6 +180,7 @@ const Certification: React.FC = () => {
 
               {status.allDone && (
                 <div className={styles.certificate}>
+                  <Logo202 mono size={120} className={styles.certWatermark} />
                   <p className={styles.certLabel}>{t('certification.certificate')}</p>
                   <p className={styles.certNumber}>
                     202f-{status.levelId.slice(0, 3)}-{String(Math.abs(hash(status.levelId)) % 10000).padStart(4, '0')}

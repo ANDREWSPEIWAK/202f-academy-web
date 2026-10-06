@@ -109,6 +109,8 @@
 }
 
 .certificate {
+  position: relative;
+  overflow: hidden;
   padding: 14px;
   border-radius: 12px;
   background: var(--coffee-deep);
@@ -116,6 +118,14 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 10px;
+}
+
+.certWatermark {
+  position: absolute;
+  right: -18px;
+  bottom: -22px;
+  color: rgba(242, 238, 230, 0.1);
+  pointer-events: none;
 }
 
 .certLabel {

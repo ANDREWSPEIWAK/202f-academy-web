@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Layout.module.css';
 import { useT } from '../i18n';
 import { useAuthStore } from '../store/authStore';
+import Logo202 from './Logo202';
 
 export type NavSection =
   | 'home'
@@ -80,7 +81,9 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandMark}>202f</span>
+          <span className={styles.brandMark}>
+            <Logo202 size={26} />
+          </span>
           <span className={styles.brandName}>{t('app.name')}</span>
         </div>
         {user && <span className={styles.userChip}>{user.name}</span>}
