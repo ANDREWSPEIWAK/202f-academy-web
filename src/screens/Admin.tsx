@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import Card from '../components/Card';
 import ProgressBar from '../components/ProgressBar';
 import Badge from '../components/Badge';
+import Button from '../components/Button';
 import styles from './Admin.module.css';
 import { CONTROL_TESTS } from '../data/controlTests';
-import { getStep, formatXp } from '../data/gamification';
+import { QUESTIONS } from '../data/questions';
+import { getStep, formatXp, STEPS } from '../data/gamification';
 import { useProgressStore, getStepStatus } from '../store/progressStore';
-import { STEPS } from '../data/gamification';
+import { useAuthStore, listUsers } from '../store/authStore';
+import { useAdminStore, Assignment } from '../store/adminStore';
+import { errorRate } from '../engine/testingEngine';
 
 const STATUS_LABEL: Record<string, string> = {
   locked: 'Заблокирована',
@@ -17,19 +21,31 @@ const STATUS_LABEL: Record<string, string> = {
 
 const Admin: React.FC = () => {
   const state = useProgressStore();
+  const user = useAuthStore((s) => s.user);
+  const { assignments, addAssignment, removeAssignment } = useAdminStore();
 
-  // Сводка по тестам: результаты и слабые темы
-  const testRows = CONTROL_TESTS.map((test) => {
-    const result = state.testResults[test.id];
-    return { test, result };
-  });
+  const [targetEmail, setTargetEmail] = useState('');
+  const [kind, setKind] = useState<'drill' | 'test'>('drill');
+  const [refId, setRefId] = useState('');
+  const [note, setNote] = useState('');
 
-  // Агрегация слабых тем по всем тестам
+  const users = useMemo(() => listUsers(), []);
+  const categories = useMemo(
+    () => Array.from(new Set(QUESTIONS.map((q) => q.category))).sort(),
+    []
+  );
+
+  // Сводка по тестам
+  const testRows = CONTROL_TESTS.map((test) => ({ test, result: state.testResults[test.id] }));
+
+  // Слабые темы: из контрольных тестов + из статистики тренажёра
   const weakMap = new Map<string, number>();
-  for (const categories of Object.values(state.weakAreas)) {
-    for (const c of categories) {
-      weakMap.set(c, (weakMap.get(c) ?? 0) + 1);
-    }
+  for (const cats of Object.values(state.weakAreas)) {
+    for (const c of cats) weakMap.set(c, (weakMap.get(c) ?? 0) + 1);
+  }
+  for (const [category, stat] of Object.entries(state.categoryStats)) {
+    const rate = errorRate(stat);
+    if (rate >= 0.3) weakMap.set(category, (weakMap.get(category) ?? 0) + Math.round(rate * 10));
   }
   const weakAreas = Array.from(weakMap.entries())
     .map(([category, count]) => ({ category, count }))
@@ -40,11 +56,28 @@ const Admin: React.FC = () => {
   const checklistTotal = STEPS.reduce((acc, s) => acc + s.checklist.length, 0);
   const checklistDone = Object.values(state.checklist).filter(Boolean).length;
 
+  if (user?.role !== 'admin') {
+    return (
+      <div className={styles.admin}>
+        <Card>
+          <p className={styles.hint}>Панель администратора доступна только роли Admin.</p>
+        </Card>
+      </div>
+    );
+  }
+
+  const submitAssignment = () => {
+    if (!targetEmail || !refId) return;
+    addAssignment({ targetEmail, kind, refId, note: note.trim() });
+    setRefId('');
+    setNote('');
+  };
+
   return (
     <div className={styles.admin}>
       <div className={styles.header}>
         <h1 className={styles.title}>Панель администратора</h1>
-        <p className={styles.subtitle}>Аналитика прогресса и слабых мест сотрудника</p>
+        <p className={styles.subtitle}>Мониторинг прогресса, слабые места, назначения команде</p>
       </div>
 
       <div className={styles.statsGrid}>
@@ -80,9 +113,38 @@ const Admin: React.FC = () => {
         </Card>
       </div>
 
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Команда ({users.length})</h2>
+        <Card>
+          <div className={styles.userList}>
+            {users.map((u) => {
+              const openAssignments = assignments.filter((a) => a.targetEmail === u.email && !a.done).length;
+              return (
+                <div key={u.id} className={styles.userRow}>
+                  <div>
+                    <p className={styles.userName}>{u.name}</p>
+                    <p className={styles.userMeta}>{u.email}</p>
+                  </div>
+                  <Badge variant={u.role === 'admin' ? 'danger' : 'secondary'} size="small">
+                    {u.role === 'admin' ? 'Admin' : 'Бариста'}
+                  </Badge>
+                  {openAssignments > 0 && (
+                    <span className={styles.userAssign}>Назначений: {openAssignments}</span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p className={styles.hint}>
+            Данные прогресса синхронизируются в рамках этого устройства. Облачный sync прогресса и аналитики —
+            следующий этап бэкенда.
+          </p>
+        </Card>
+      </section>
+
       {weakAreas.length > 0 && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Слабые темы (по ошибкам в тестах)</h2>
+          <h2 className={styles.sectionTitle}>Слабые темы (тесты + тренажёр)</h2>
           <Card>
             <div className={styles.weakList}>
               {weakAreas.map((w) => (
@@ -93,12 +155,117 @@ const Admin: React.FC = () => {
               ))}
             </div>
             <p className={styles.hint}>
-              Рекомендация: провести практический разбор тем с наибольшим числом ошибок перед допуском к
+              Рекомендация: назначить точечную тренировку по теме или провести практический разбор перед допуском к
               аттестации.
             </p>
           </Card>
         </section>
       )}
+
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Назначить работу</h2>
+        <Card className={styles.assignForm}>
+          <label className={styles.field}>
+            <span>Кому</span>
+            <select value={targetEmail} onChange={(e) => setTargetEmail(e.target.value)}>
+              <option value="">— выбрать бариста —</option>
+              {users.map((u) => (
+                <option key={u.id} value={u.email}>
+                  {u.name} ({u.email})
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <div className={styles.kindRow} role="radiogroup" aria-label="Тип назначения">
+            <button
+              type="button"
+              role="radio"
+              aria-checked={kind === 'drill'}
+              className={`${styles.kindBtn} ${kind === 'drill' ? styles.kindActive : ''}`}
+              onClick={() => {
+                setKind('drill');
+                setRefId('');
+              }}
+            >
+              Тренажёр по категории
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={kind === 'test'}
+              className={`${styles.kindBtn} ${kind === 'test' ? styles.kindActive : ''}`}
+              onClick={() => {
+                setKind('test');
+                setRefId('');
+              }}
+            >
+              Контрольный тест
+            </button>
+          </div>
+
+          <label className={styles.field}>
+            <span>{kind === 'drill' ? 'Категория' : 'Тест'}</span>
+            <select value={refId} onChange={(e) => setRefId(e.target.value)}>
+              <option value="">— выбрать —</option>
+              {kind === 'drill'
+                ? categories.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))
+                : CONTROL_TESTS.map((t) => (
+                    <option key={t.id} value={t.title}>
+                      {t.title}
+                    </option>
+                  ))}
+            </select>
+          </label>
+
+          <label className={styles.field}>
+            <span>Комментарий</span>
+            <input
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              placeholder="Например: повторить расчёты соотношений перед сменой"
+            />
+          </label>
+
+          <Button fullWidth disabled={!targetEmail || !refId} onClick={submitAssignment}>
+            Назначить
+          </Button>
+        </Card>
+
+        {assignments.length > 0 && (
+          <div className={styles.assignList}>
+            {assignments.map((a: Assignment) => (
+              <Card key={a.id} className={styles.assignRow}>
+                <div className={styles.assignInfo}>
+                  <p className={styles.assignTarget}>{a.targetEmail}</p>
+                  <p className={styles.assignDetail}>
+                    {a.kind === 'drill' ? `Тренажёр: ${a.refId}` : a.refId}
+                    {a.note ? ` · ${a.note}` : ''}
+                  </p>
+                </div>
+                <div className={styles.assignActions}>
+                  {a.done ? (
+                    <Badge variant="success" size="small">
+                      Выполнено
+                    </Badge>
+                  ) : (
+                    <Badge variant="warning" size="small">
+                      Активно
+                    </Badge>
+                  )}
+                  <button type="button" className={styles.assignRemove} onClick={() => removeAssignment(a.id)} aria-label="Удалить назначение">
+                    ×
+                  </button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        )}
+      </section>
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Результаты тестов</h2>

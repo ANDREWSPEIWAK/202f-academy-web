@@ -12,14 +12,14 @@
 .title {
   font-size: 2rem;
   font-weight: 700;
-  color: #2a2520;
+  color: var(--ink);
   margin: 0 0 0.5rem 0;
   font-family: Georgia, serif;
 }
 
 .description {
   font-size: 1rem;
-  color: #7a6f63;
+  color: var(--ink-soft);
   margin: 0;
 }
 
@@ -27,7 +27,7 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #e8e1d9;
+  border-bottom: 1px solid var(--border);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -38,19 +38,19 @@
   border: none;
   border-bottom: 3px solid transparent;
   cursor: pointer;
-  color: #7a6f63;
+  color: var(--ink-soft);
   font-weight: 500;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .tab:hover {
-  color: #5c3d2e;
+  color: var(--coffee);
 }
 
 .tab.active {
-  color: #5c3d2e;
-  border-bottom-color: #5c3d2e;
+  color: var(--coffee);
+  border-bottom-color: var(--coffee);
 }
 
 .content {
@@ -80,7 +80,7 @@
 
 .timerLabel {
   font-size: 0.875rem;
-  color: #a09a8f;
+  color: var(--text-faint);
   margin: 0;
   text-transform: uppercase;
 }
@@ -88,19 +88,19 @@
 .timerDisplay {
   font-size: 4rem;
   font-weight: 700;
-  color: #5c3d2e;
+  color: var(--coffee);
   font-family: 'Monaco', 'Courier New', monospace;
   letter-spacing: 0.1em;
 }
 
 .timerTarget {
   font-size: 1rem;
-  color: #7a6f63;
+  color: var(--ink-soft);
   margin: 0;
 }
 
 .bloomInfo {
-  background-color: #f0ede9;
+  background-color: var(--surface-2);
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
@@ -110,7 +110,7 @@
 .bloomInfo p {
   margin: 0;
   font-size: 0.875rem;
-  color: #5c3d2e;
+  color: var(--coffee);
   font-weight: 600;
 }
 
@@ -131,7 +131,7 @@
 .logForm h3,
 .calculator h3 {
   margin: 0;
-  color: #2a2520;
+  color: var(--ink);
   font-size: 1.125rem;
 }
 
@@ -142,7 +142,7 @@
 }
 
 .result {
-  background-color: #f0ede9;
+  background-color: var(--surface-2);
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
@@ -151,7 +151,7 @@
 .result p {
   margin: 0;
   font-size: 1rem;
-  color: #5c3d2e;
+  color: var(--coffee);
 }
 
 .result strong {

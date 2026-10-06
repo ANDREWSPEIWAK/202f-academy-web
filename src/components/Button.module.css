@@ -54,12 +54,12 @@
 /* Variants */
 .primary {
   background: linear-gradient(135deg, var(--coffee) 0%, var(--coffee-deep) 100%);
-  color: #f7f2ea;
-  box-shadow: 0 2px 4px rgba(58, 38, 27, 0.25), 0 4px 12px rgba(58, 38, 27, 0.15);
+  color: #f2f9fd;
+  box-shadow: 0 2px 4px rgba(53, 30, 40, 0.25), 0 4px 12px rgba(53, 30, 40, 0.15);
 }
 
 .primary:hover:not(:disabled) {
-  box-shadow: 0 4px 8px rgba(58, 38, 27, 0.3), 0 8px 20px rgba(58, 38, 27, 0.2);
+  box-shadow: 0 4px 8px rgba(53, 30, 40, 0.3), 0 8px 20px rgba(53, 30, 40, 0.2);
   transform: translateY(-1px);
 }
 
@@ -88,12 +88,12 @@
 
 .danger {
   background: linear-gradient(135deg, var(--heat) 0%, var(--rust) 100%);
-  color: #fff7f2;
-  box-shadow: 0 2px 4px rgba(180, 85, 45, 0.25);
+  color: #fff5ef;
+  box-shadow: 0 2px 4px rgba(194, 65, 15, 0.25);
 }
 
 .danger:hover:not(:disabled) {
-  box-shadow: 0 4px 10px rgba(180, 85, 45, 0.35);
+  box-shadow: 0 4px 10px rgba(194, 65, 15, 0.35);
 }
 
 .icon {

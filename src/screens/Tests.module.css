@@ -351,3 +351,197 @@
   gap: 0.75rem;
   flex-wrap: wrap;
 }
+
+/* ===== Режимы: контрольные / тренажёр ===== */
+
+.modeTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.modeTab {
+  padding: 0.65rem;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.modeTabActive {
+  background: var(--coffee);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== Типы вопросов ===== */
+
+.questionKind {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--aqua);
+}
+
+.kindHint {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0;
+  font-weight: 600;
+}
+
+.scenario {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: var(--coffee-tint);
+  border-left: 3px solid var(--coffee);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.optionLetterChecked {
+  background: var(--aqua);
+  color: #fff;
+}
+
+.optionUsed {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.numberBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.numberInput {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+  font-family: inherit;
+  min-height: 48px;
+}
+
+.numberInput:focus {
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 3px var(--aqua-soft);
+}
+
+.orderBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.orderSequence {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.orderSeqItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--aqua);
+  border-radius: 10px;
+  background: var(--aqua-soft);
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--ink);
+  font-family: inherit;
+  min-height: 44px;
+}
+
+.orderSeqNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--aqua);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.orderEmpty {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  padding: 0.4rem 0;
+}
+
+/* ===== Тренажёр ===== */
+
+.drillPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.drillCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+}
+
+.drillTitle {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.drillDesc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.drillMeta {
+  font-size: 0.82rem;
+  color: var(--coffee);
+  font-weight: 600;
+  margin: 0;
+}
+
+.drillSubTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem 0;
+}

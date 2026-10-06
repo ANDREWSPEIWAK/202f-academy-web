@@ -1,7 +1,21 @@
 import React from 'react';
 import styles from './Layout.module.css';
+import { useT } from '../i18n';
+import { useAuthStore } from '../store/authStore';
 
-export type NavSection = 'home' | 'path' | 'tests' | 'library' | 'trainer' | 'practice' | 'profile' | 'admin';
+export type NavSection =
+  | 'home'
+  | 'path'
+  | 'tests'
+  | 'shift'
+  | 'more'
+  | 'library'
+  | 'trainer'
+  | 'practice'
+  | 'profile'
+  | 'discipline'
+  | 'wheel'
+  | 'admin';
 
 const ICONS: Record<string, React.ReactNode> = {
   home: (
@@ -21,27 +35,31 @@ const ICONS: Record<string, React.ReactNode> = {
       <path d="m8 12.5 2.5 2.5L16 9.5" />
     </svg>
   ),
-  library: (
+  shift: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M4 4h7v16H4z" />
-      <path d="M13 4h7v16h-7z" />
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 3" />
     </svg>
   ),
-  profile: (
+  more: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 21c1.5-4 5-5.5 8-5.5s6.5 1.5 8 5.5" />
+      <circle cx="5" cy="12" r="1.6" fill="currentColor" />
+      <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+      <circle cx="19" cy="12" r="1.6" fill="currentColor" />
     </svg>
   ),
 };
 
-const PRIMARY_TABS: { id: NavSection; label: string }[] = [
-  { id: 'home', label: 'Главная' },
-  { id: 'path', label: 'Путь' },
-  { id: 'tests', label: 'Тесты' },
-  { id: 'library', label: 'Библиотека' },
-  { id: 'profile', label: 'Профиль' },
+const PRIMARY_TABS: { id: NavSection; labelKey: string }[] = [
+  { id: 'home', labelKey: 'nav.home' },
+  { id: 'path', labelKey: 'nav.path' },
+  { id: 'tests', labelKey: 'nav.tests' },
+  { id: 'shift', labelKey: 'nav.shift' },
+  { id: 'more', labelKey: 'nav.more' },
 ];
+
+/** Секции, которые подсвечивают вкладку More */
+const MORE_SECTIONS: NavSection[] = ['more', 'library', 'trainer', 'practice', 'profile', 'discipline', 'wheel', 'admin'];
 
 interface LayoutProps {
   activeSection: NavSection;
@@ -50,33 +68,23 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) => {
-  const activeTab: NavSection =
-    activeSection === 'trainer' || activeSection === 'practice'
-      ? 'home'
-      : activeSection === 'admin'
-        ? 'profile'
-        : activeSection;
+  const t = useT();
+  const user = useAuthStore((s) => s.user);
+  const activeTab: NavSection = MORE_SECTIONS.includes(activeSection) ? 'more' : activeSection;
 
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
         <div className={styles.brand}>
           <span className={styles.brandMark}>202f</span>
-          <span className={styles.brandName}>BaristaOS Academy</span>
+          <span className={styles.brandName}>{t('app.name')}</span>
         </div>
-        <button
-          type="button"
-          className={styles.adminLink}
-          onClick={() => onNavigate('admin')}
-          aria-label="Панель администратора"
-        >
-          Admin
-        </button>
+        {user && <span className={styles.userChip}>{user.name}</span>}
       </header>
 
       <main className={styles.content}>{children}</main>
 
-      <nav className={styles.tabBar} aria-label="Основная навигация">
+      <nav className={styles.tabBar} aria-label={t('app.name')}>
         {PRIMARY_TABS.map((tab) => (
           <button
             key={tab.id}
@@ -88,7 +96,7 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
             <span className={styles.tabIcon} aria-hidden="true">
               {ICONS[tab.id]}
             </span>
-            <span className={styles.tabLabel}>{tab.label}</span>
+            <span className={styles.tabLabel}>{t(tab.labelKey)}</span>
           </button>
         ))}
       </nav>

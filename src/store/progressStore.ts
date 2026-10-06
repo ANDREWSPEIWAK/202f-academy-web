@@ -5,6 +5,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { STEPS, Step, XP, getStep } from '../data/gamification';
+import { CategoryStat, updateStat } from '../engine/testingEngine';
 
 export type StepStatus = 'locked' | 'available' | 'in_progress' | 'completed';
 
@@ -23,11 +24,16 @@ interface ProgressState {
   weakAreas: Record<string, string[]>; // testId → категории с ошибками последней попытки
   completedSteps: string[];
   completedLevels: string[];
+  /** spaced repetition: статистика по категориям вопросов */
+  categoryStats: Record<string, CategoryStat>;
+  /** последние показанные вопросы тренажёра (защита от повторов) */
+  recentQuestionIds: string[];
 
   addXp: (amount: number) => void;
   completeLesson: (lessonId: string) => void;
   toggleChecklistItem: (stepId: string, index: number) => void;
   recordTestResult: (testId: string, score: number, passingScore: number, weakCategories?: string[]) => void;
+  recordCategoryAnswers: (answers: { category: string; correct: boolean; questionId: string }[]) => void;
   resetProgress: () => void;
 }
 
@@ -41,6 +47,8 @@ export const useProgressStore = create<ProgressState>()(
       weakAreas: {},
       completedSteps: [],
       completedLevels: [],
+      categoryStats: {},
+      recentQuestionIds: [],
 
       addXp: (amount) => set((s) => ({ xp: s.xp + amount })),
 
@@ -84,6 +92,22 @@ export const useProgressStore = create<ProgressState>()(
         });
       },
 
+      recordCategoryAnswers: (answers) => {
+        const { categoryStats, recentQuestionIds, xp } = get();
+        const nextStats = { ...categoryStats };
+        for (const a of answers) {
+          nextStats[a.category] = updateStat(nextStats[a.category], a.correct);
+        }
+        // кольцо последних 40 вопросов для защиты от повторов
+        const nextRecent = [...new Set([...answers.map((a) => a.questionId), ...recentQuestionIds])].slice(0, 40);
+        const correctCount = answers.filter((a) => a.correct).length;
+        set({
+          categoryStats: nextStats,
+          recentQuestionIds: nextRecent,
+          xp: xp + correctCount * XP.DRILL_CORRECT,
+        });
+      },
+
       resetProgress: () =>
         set({
           xp: 0,
@@ -93,6 +117,8 @@ export const useProgressStore = create<ProgressState>()(
           weakAreas: {},
           completedSteps: [],
           completedLevels: [],
+          categoryStats: {},
+          recentQuestionIds: [],
         }),
     }),
     { name: '202f-progress-store' }

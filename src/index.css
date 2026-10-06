@@ -1,42 +1,67 @@
 /* ===== BaristaOS 202f — дизайн-токены =====
-   Industrial DNA 202f: тёплая кофейная база, яркие акценты
-   aqua / heat / rust, лёгкий фон с warm undertone и glow. */
+   Палитра Pinterest 2026 Trending Colors:
+   Cool Blue #D7EFFF · Jade #AEB8A0 · Plum Noir #351E28 ·
+   Wasabi #E9F056 · Persimmon #FF5C34.
+   Роли: Plum Noir — текст и основной акцент, Cool Blue — фон
+   и поверхности, Persimmon — энергия/ошибки, Jade — успех,
+   Wasabi — подсветка достижений. */
 
 :root {
-  /* Фон и поверхности */
-  --bg: #f7f2ea;
-  --surface: #fffdf9;
+  /* Фон и поверхности — Cool Blue */
+  --bg: #e9f4fa;
+  --surface: #f7fbfd;
   --surface-raised: #ffffff;
+  --surface-2: #e2eff7;
+  --cool-blue: #d7efff;
 
   /* Границы */
-  --border: #e9dfd2;
-  --border-strong: #d6c7b4;
+  --border: #d3e4ed;
+  --border-strong: #b7cfdb;
 
-  /* Текст */
-  --ink: #241c15;
-  --ink-soft: #6f6255;
+  /* Текст — Plum Noir */
+  --ink: #351e28;
+  --ink-soft: #6e5a64;
+  --text: var(--ink);
+  --text-muted: var(--ink-soft);
+  --text-faint: #9d8b93;
 
-  /* Кофейная база */
-  --coffee: #5c3d2e;
-  --coffee-deep: #3a261b;
-  --coffee-tint: rgba(92, 61, 46, 0.08);
+  /* Тёмная база — Plum Noir */
+  --coffee: #4a2b3a;
+  --coffee-deep: #351e28;
+  --coffee-tint: rgba(53, 30, 40, 0.06);
 
   /* Яркие акценты */
-  --aqua: #0aa2b8;
-  --aqua-soft: rgba(10, 162, 184, 0.12);
-  --heat: #e2632f;
-  --heat-soft: rgba(226, 99, 47, 0.13);
-  --rust: #b4552d;
-  --rust-soft: rgba(180, 85, 45, 0.15);
+  --aqua: #351e28; /* основной акцент — Plum Noir */
+  --aqua-soft: rgba(127, 196, 229, 0.2); /* Cool Blue tint */
+  --heat: #ff5c34; /* Persimmon */
+  --heat-soft: rgba(255, 92, 52, 0.14);
+  --rust: #c2410f; /* глубокий Persimmon — предупреждения */
+  --rust-soft: rgba(194, 65, 15, 0.12);
 
-  /* Статусы */
-  --success: #2e8b57;
-  --success-soft: rgba(46, 139, 87, 0.12);
+  /* Wasabi — подсветка достижений */
+  --wasabi: #e9f056;
+  --wasabi-soft: rgba(233, 240, 86, 0.24);
 
-  /* Глубина */
-  --shadow-sm: 0 1px 2px rgba(36, 28, 21, 0.06), 0 2px 6px rgba(36, 28, 21, 0.07);
-  --shadow-md: 0 2px 4px rgba(36, 28, 21, 0.07), 0 8px 20px rgba(36, 28, 21, 0.1);
-  --shadow-lg: 0 4px 8px rgba(36, 28, 21, 0.08), 0 16px 36px rgba(36, 28, 21, 0.14);
+  /* Jade — успех и вторичные теги */
+  --jade: #aeb8a0;
+  --success: #5f7154;
+  --success-soft: rgba(174, 184, 160, 0.28);
+
+  /* Глубина — тени с Plum Noir базой */
+  --shadow-sm: 0 1px 2px rgba(53, 30, 40, 0.08), 0 3px 8px rgba(53, 30, 40, 0.1);
+  --shadow-md: 0 2px 6px rgba(53, 30, 40, 0.09), 0 10px 26px rgba(53, 30, 40, 0.14);
+  --shadow-lg: 0 6px 14px rgba(53, 30, 40, 0.12), 0 22px 48px rgba(53, 30, 40, 0.2);
+
+  /* Алиасы для новых экранов (единая палитра) */
+  --accent: var(--aqua);
+  --accent-2: var(--wasabi);
+  --accent-glow: rgba(127, 196, 229, 0.4);
+  --accent-soft: var(--aqua-soft);
+  --accent-border: rgba(53, 30, 40, 0.4);
+  --danger: var(--heat);
+  --danger-border: rgba(255, 92, 52, 0.45);
+  --warning: var(--rust);
+  --warning-border: rgba(194, 65, 15, 0.45);
 }
 
 * {
@@ -58,11 +83,12 @@ body,
 body {
   overflow: hidden;
   background-color: var(--bg);
-  /* Живой фон: тёплая база + aqua/rust glow */
+  /* Живой фон: Cool Blue база + Persimmon / Wasabi / Jade glow */
   background-image:
-    radial-gradient(ellipse 60% 40% at 8% -5%, rgba(10, 162, 184, 0.09), transparent),
-    radial-gradient(ellipse 55% 40% at 95% 105%, rgba(180, 85, 45, 0.09), transparent),
-    radial-gradient(ellipse 40% 30% at 85% 10%, rgba(226, 99, 47, 0.05), transparent);
+    radial-gradient(ellipse 60% 40% at 8% -5%, rgba(127, 196, 229, 0.2), transparent),
+    radial-gradient(ellipse 55% 40% at 95% 105%, rgba(255, 92, 52, 0.1), transparent),
+    radial-gradient(ellipse 40% 30% at 85% 10%, rgba(233, 240, 86, 0.14), transparent),
+    radial-gradient(ellipse 45% 35% at 15% 85%, rgba(174, 184, 160, 0.18), transparent);
   background-attachment: fixed;
 }
 
@@ -72,6 +98,6 @@ body {
 }
 
 ::selection {
-  background: var(--aqua-soft);
+  background: var(--wasabi-soft);
   color: var(--coffee-deep);
 }

@@ -144,3 +144,163 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* ===== Команда ===== */
+
+.userList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.userRow:last-child {
+  border-bottom: none;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.userMeta {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.userAssign {
+  font-size: 0.78rem;
+  color: var(--rust);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* ===== Форма назначения ===== */
+
+.assignForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.field select,
+.field input {
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  min-height: 44px;
+}
+
+.field select:focus,
+.field input:focus {
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 3px var(--aqua-soft);
+}
+
+.kindRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.kindBtn {
+  padding: 0.65rem 0.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  min-height: 44px;
+}
+
+.kindActive {
+  border-color: var(--aqua);
+  background: var(--aqua-soft);
+  color: var(--coffee-deep);
+}
+
+.assignList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.assignRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+}
+
+.assignInfo {
+  min-width: 0;
+}
+
+.assignTarget {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.assignDetail {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0.15rem 0 0;
+  line-height: 1.45;
+}
+
+.assignActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.assignRemove {
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+
+.assignRemove:hover {
+  color: var(--heat);
+}
