@@ -41,13 +41,11 @@
 
 .brandMark {
   align-self: flex-start;
-  padding: 10px 16px;
-  border-radius: 14px;
+  padding: 8px;
+  border-radius: 18px;
   background: var(--coffee-deep);
-  color: var(--wasabi);
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0.04em;
+  color: #ffffff;
+  line-height: 0;
   box-shadow: var(--shadow-md);
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { useI18nStore, useT, Lang } from '../i18n';
 import Button from '../components/Button';
+import Logo202 from '../components/Logo202';
 import styles from './Landing.module.css';
 
 const Landing: React.FC = () => {
@@ -49,9 +50,9 @@ const Landing: React.FC = () => {
       </div>
 
       <div className={styles.hero}>
-        <div className={styles.brandMark} aria-hidden="true">
-          202f
-        </div>
+  <div className={styles.brandMark} aria-hidden="true">
+  <Logo202 size={52} />
+  </div>
         <h1 className={styles.title}>{t('landing.hero.title')}</h1>
         <p className={styles.subtitle}>{t('landing.hero.sub')}</p>
         <ul className={styles.points}>

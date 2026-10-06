@@ -124,7 +124,7 @@
   position: absolute;
   right: -18px;
   bottom: -22px;
-  color: rgba(255, 255, 255, 0.14);
+  opacity: 0.14;
   pointer-events: none;
 }
 
