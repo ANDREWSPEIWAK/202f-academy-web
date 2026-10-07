@@ -9,21 +9,15 @@
 }
 
 .header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .title {
   font-size: 2rem;
   font-weight: 700;
   color: #2a2520;
-  margin: 0 0 0.5rem 0;
-  font-family: Georgia, serif;
-}
-
-.description {
-  font-size: 1rem;
-  color: #7a6f63;
   margin: 0;
+  font-family: Georgia, serif;
 }
 
 .modeSelector {

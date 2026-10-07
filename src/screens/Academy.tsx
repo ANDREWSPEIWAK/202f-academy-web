@@ -2,12 +2,12 @@ import React from 'react';
 import Card from '../components/Card';
 import ProgressBar from '../components/ProgressBar';
 import Badge from '../components/Badge';
-import styles from './Dashboard.module.css';
+import styles from './Academy.module.css';
 
-interface DashboardProps {
+interface AcademyProps {
 }
 
-const Dashboard: React.FC<DashboardProps> = ({}) => {
+const Academy: React.FC<AcademyProps> = ({}) => {
   const profile = {
     currentLevel: 'JUNIOR' as const,
     totalProgress: 31,
@@ -34,33 +34,27 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
   };
 
   return (
-    <div className={styles.dashboard}>
+    <div className={styles.academy}>
       <div className={styles.header}>
         <h1 className={styles.greeting}>{greeting()}</h1>
-        <p className={styles.subtitle}>Добро пожаловать в 202F Academy</p>
       </div>
 
-      <div className={styles.levelCard}>
-        <Card>
-          <div className={styles.levelContent}>
-            <div>
-              <h2 className={styles.levelTitle}>{profile.currentLevel}</h2>
-              <p className={styles.levelSubtitle}>Твой текущий уровень</p>
-            </div>
-            <div className={styles.progressSection}>
-              <ProgressBar value={profile.totalProgress} showLabel={false} />
-              <p className={styles.progressLabel}>{profile.totalProgress}%</p>
-            </div>
+      <Card className={styles.levelCard}>
+        <div className={styles.levelContent}>
+          <div>
+            <h2 className={styles.levelTitle}>{profile.currentLevel}</h2>
           </div>
-        </Card>
-      </div>
+          <div className={styles.progressSection}>
+            <ProgressBar value={profile.totalProgress} showLabel={false} />
+          </div>
+        </div>
+      </Card>
 
       <div className={styles.statsGrid}>
         <Card>
           <div className={styles.stat}>
             <span className={styles.statIcon}>🔥</span>
             <div>
-              <p className={styles.statLabel}>Текущая серия</p>
               <p className={styles.statValue}>{profile.currentStreak} дней</p>
             </div>
           </div>
@@ -69,7 +63,6 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
           <div className={styles.stat}>
             <span className={styles.statIcon}>📚</span>
             <div>
-              <p className={styles.statLabel}>Уроков завершено</p>
               <p className={styles.statValue}>{profile.totalLessonsCompleted}</p>
             </div>
           </div>
@@ -78,7 +71,6 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
           <div className={styles.stat}>
             <span className={styles.statIcon}>✓</span>
             <div>
-              <p className={styles.statLabel}>Тестов пройдено</p>
               <p className={styles.statValue}>{profile.totalTestsPassed}</p>
             </div>
           </div>
@@ -87,7 +79,6 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
           <div className={styles.stat}>
             <span className={styles.statIcon}>☕</span>
             <div>
-              <p className={styles.statLabel}>Проливов записано</p>
               <p className={styles.statValue}>{profile.totalBrewLogsRecorded}</p>
             </div>
           </div>
@@ -116,7 +107,6 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
             <Card key={level} interactive>
               <div className={styles.levelCard2}>
                 <h4>{level}</h4>
-                <p>🔒 Заблокирован</p>
                 <p className={styles.hint}>Завершите текущий уровень</p>
               </div>
             </Card>
@@ -127,4 +117,4 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
   );
 };
 
-export default Dashboard;
+export default Academy;

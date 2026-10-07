@@ -37,18 +37,18 @@ const Practice: React.FC = () => {
     <div className={styles.practice}>
       <div className={styles.header}>
         <h1 className={styles.title}>Практика</h1>
-        <p className={styles.description}>Инструменты для тренировки и логирования</p>
       </div>
 
       <div className={styles.tabs}>
         {['timer', 'log', 'calculator'].map((tab) => (
-          <button
+          <Button
             key={tab}
-            className={`${styles.tab} ${activeTab === tab ? styles.active : ''}`}
+            variant={activeTab === tab ? 'primary' : 'secondary'}
+            size="small"
             onClick={() => setActiveTab(tab as typeof activeTab)}
           >
             {tab === 'timer' ? '⏱ Таймер' : tab === 'log' ? '📋 Лог' : '🧮 Калькулятор'}
-          </button>
+          </Button>
         ))}
       </div>
 
@@ -112,7 +112,7 @@ const Practice: React.FC = () => {
           <div className={styles.section}>
             <Card>
               <div className={styles.logForm}>
-                <h3>Запись заварки</h3>
+                <h3 className={styles.formTitle}>Запись заварки</h3>
                 <div className={styles.formGroup}>
                   <Input label="Кофе" placeholder="Название кофе" />
                   <Input label="Происхождение" placeholder="Эфиопия, Кения..." />
@@ -136,7 +136,7 @@ const Practice: React.FC = () => {
           <div className={styles.section}>
             <Card>
               <div className={styles.calculator}>
-                <h3>Калькулятор отношения</h3>
+                <h3 className={styles.formTitle}>Калькулятор отношения</h3>
                 <div className={styles.formGroup}>
                   <Input label="Кофе (г)" type="number" defaultValue="18" />
                   <Input label="Соотношение" placeholder="1:16.7" />
@@ -149,7 +149,7 @@ const Practice: React.FC = () => {
 
             <Card>
               <div className={styles.calculator}>
-                <h3>Калькулятор Extraction Yield</h3>
+                <h3 className={styles.formTitle}>Калькулятор Extraction Yield</h3>
                 <div className={styles.formGroup}>
                   <Input label="Доза (г)" type="number" defaultValue="18" />
                   <Input label="Вес напитка (г)" type="number" defaultValue="300" />

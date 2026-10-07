@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Layout from './components/Layout';
 import Dashboard from './screens/Dashboard';
 import Academy from './screens/Academy';
@@ -14,11 +14,15 @@ function App() {
   const [activeSection, setActiveSection] = useState<NavSection>('academy');
   const [showDashboard, setShowDashboard] = useState(true);
 
+  const handleNavigate = (section: NavSection) => {
+    setActiveSection(section);
+  };
+
   return (
-    <Layout activeSection={activeSection} onNavigate={setActiveSection}>
+    <Layout activeSection={activeSection} onNavigate={handleNavigate}>
       {showDashboard && activeSection === 'academy' && (
         <div onClick={() => setShowDashboard(false)} style={{ cursor: 'pointer' }}>
-          <Dashboard onNavigate={setActiveSection} />
+          <Dashboard />
         </div>
       )}
       {!showDashboard && activeSection === 'academy' && <Academy />}

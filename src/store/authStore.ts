@@ -20,7 +20,7 @@ export const useAuthStore = create<AuthState>()(persist(
     isAuthenticated: false,
     isLoading: false,
 
-    login: async (email: string, password: string) => {
+    login: async (email: string, _password: string) => {
       set({ isLoading: true });
       try {
         // Mock authentication - replace with actual API call
