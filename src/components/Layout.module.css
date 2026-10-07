@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.65rem 1rem;
-  background: rgba(242, 238, 230, 0.88);
+  background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
@@ -27,10 +27,10 @@
   place-items: center;
   width: 40px;
   height: 40px;
-  background: var(--coffee-deep);
+  background: #000000;
   color: #ffffff;
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
 }
 
 .brandName {
@@ -46,7 +46,7 @@
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--on-accent);
   background: var(--wasabi);
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
@@ -86,8 +86,9 @@
   justify-content: space-around;
   align-items: center;
   margin: 0 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
-  background: var(--coffee-deep);
-  border-radius: 22px;
+  background: #000000;
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
   padding: 0.4rem 0.35rem;
   flex-shrink: 0;
   box-shadow: var(--shadow-md);
@@ -103,7 +104,7 @@
   padding: 0.45rem 0.7rem;
   border-radius: 16px;
   cursor: pointer;
-  color: rgba(242, 238, 230, 0.55);
+  color: var(--text-muted);
   min-width: 58px;
   min-height: 48px;
   transition: all 0.18s ease-out;
@@ -122,8 +123,8 @@
 }
 
 .tabActive {
-  color: var(--coffee-deep);
-  background: var(--wasabi);
+  color: #ffffff;
+  background: var(--aqua);
 }
 
 @media (min-width: 768px) {

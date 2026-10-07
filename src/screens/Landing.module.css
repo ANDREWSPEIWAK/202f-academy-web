@@ -42,11 +42,11 @@
 .brandMark {
   align-self: flex-start;
   padding: 8px;
-  border-radius: 18px;
-  background: var(--coffee-deep);
+  border-radius: 14px;
+  background: #000000;
   color: #ffffff;
   line-height: 0;
-  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-strong);
 }
 
 .title {
@@ -95,7 +95,7 @@
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 14px;
   padding: 20px;
   box-shadow: var(--shadow-lg);
   display: flex;
@@ -181,7 +181,7 @@
 .switchBtn {
   border: none;
   background: none;
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 700;
   cursor: pointer;
   font-size: 13px;

@@ -1,75 +1,83 @@
-/* ===== 202 Barista Academy — Neo-Bento дизайн-токены =====
-   Палитра: Paper #F2EEE6 · Ink #17140F · Violet #6C5CE7 ·
-   Lime #C9F24B · Coral #F0544F · Amber #F5B841 · Sage #AEB8A0.
+/* ===== 202 Barista Academy — Dark-first дизайн-токены =====
+   Палитра: Black #000000 · Agate Grey #465055 · White #FFFFFF ·
+   Red #F03250 (бренд, CTA) · Electric Indigo #523CD7 (выбор, навигация) ·
+   Yellow Green #C3F03C (прогресс, достижения).
+   Глубина: BLACK → поверхность → AGATE. Акценты — яркие сигналы на тёмном.
    Типографика: Space Grotesk (display) · Plus Jakarta Sans (body) ·
    Space Mono (данные и метрики). */
 
 :root {
+  color-scheme: dark;
+
   /* Типографика */
   --font-display: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Space Mono', ui-monospace, 'SF Mono', monospace;
 
-  /* Фон и поверхности — Paper */
-  --bg: #f2eee6;
-  --surface: #faf7f0;
-  --surface-raised: #ffffff;
-  --surface-2: #e9e4d8;
-  --cool-blue: #e9e4d8; /* алиас совместимости */
+  /* Фон и поверхности: чёрный → графит */
+  --black: #000000;
+  --agate: #465055;
+  --bg: #000000;
+  --surface: #0b0d0e;
+  --surface-raised: #141819;
+  --surface-2: #1b2124;
+  --cool-blue: #1b2124; /* алиас совместимости */
 
   /* Границы */
-  --border: #ddd5c6;
-  --border-strong: #c2b8a5;
+  --border: #262e32;
+  --border-strong: #465055;
 
-  /* Текст — Ink */
-  --ink: #17140f;
-  --ink-soft: #5b544a;
+  /* Текст */
+  --ink: #ffffff;
+  --ink-soft: #b4bec2;
   --text: var(--ink);
   --text-muted: var(--ink-soft);
-  --text-faint: #8f867a;
+  --text-faint: #8a979c;
+  --on-accent: #000000;
 
-  /* Тёмная база — Ink block */
-  --coffee: #241f18;
-  --coffee-deep: #17140f;
-  --coffee-tint: rgba(23, 20, 15, 0.06);
+  /* Блоки и интерактив (алиасы прежних названий) */
+  --coffee: #ffffff;
+  --coffee-deep: #465055;
+  --coffee-tint: rgba(255, 255, 255, 0.06);
 
-  /* Яркие акценты — Neo-Bento */
-  --violet: #6c5ce7;
-  --violet-soft: rgba(108, 92, 231, 0.14);
-  --aqua: #6c5ce7; /* основной акцент — Violet */
+  /* Electric Indigo — выбор, навигация, категории */
+  --violet: #523cd7;
+  --violet-soft: rgba(82, 60, 215, 0.24);
+  --aqua: #523cd7;
   --aqua-soft: var(--violet-soft);
-  --heat: #f0544f; /* Coral */
-  --heat-soft: rgba(240, 84, 79, 0.14);
-  --rust: #c2410f; /* глубокий Coral — предупреждения */
-  --rust-soft: rgba(194, 65, 15, 0.12);
-  --amber: #f5b841;
-  --amber-soft: rgba(245, 184, 65, 0.2);
+  --accent-text: #9b8cff;
 
-  /* Lime — подсветка достижений */
-  --wasabi: #c9f24b;
-  --wasabi-soft: rgba(201, 242, 75, 0.28);
+  /* Red — бренд, главные действия, критичное */
+  --heat: #f03250;
+  --heat-soft: rgba(240, 50, 80, 0.18);
+  --rust: #ff5c75;
+  --rust-soft: rgba(255, 92, 117, 0.16);
+
+  /* Yellow Green — прогресс, достижения, успех */
+  --wasabi: #c3f03c;
+  --wasabi-soft: rgba(195, 240, 60, 0.16);
   --lime: var(--wasabi);
+  --amber: var(--wasabi);
+  --amber-soft: var(--wasabi-soft);
+  --jade: #8a979c;
+  --success: var(--wasabi);
+  --success-soft: var(--wasabi-soft);
 
-  /* Sage — успех и вторичные теги */
-  --jade: #aeb8a0;
-  --success: #5f7154;
-  --success-soft: rgba(174, 184, 160, 0.28);
-
-  /* Глубина — жёсткие тени в стиле bento */
-  --shadow-sm: 0 1px 2px rgba(23, 20, 15, 0.08), 0 3px 8px rgba(23, 20, 15, 0.08);
-  --shadow-md: 0 2px 6px rgba(23, 20, 15, 0.09), 0 10px 26px rgba(23, 20, 15, 0.12);
-  --shadow-lg: 0 6px 14px rgba(23, 20, 15, 0.12), 0 22px 48px rgba(23, 20, 15, 0.18);
+  /* Глубина — тени на чёрном */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.65);
 
   /* Алиасы для новых экранов (единая палитра) */
   --accent: var(--aqua);
   --accent-2: var(--wasabi);
-  --accent-glow: rgba(108, 92, 231, 0.4);
+  --accent-glow: rgba(82, 60, 215, 0.5);
   --accent-soft: var(--aqua-soft);
-  --accent-border: rgba(23, 20, 15, 0.4);
+  --accent-border: rgba(155, 140, 255, 0.5);
   --danger: var(--heat);
-  --danger-border: rgba(240, 84, 79, 0.45);
+  --danger-border: rgba(240, 50, 80, 0.55);
   --warning: var(--rust);
-  --warning-border: rgba(194, 65, 15, 0.45);
+  --warning-border: rgba(255, 92, 117, 0.5);
 }
 
 * {
@@ -91,11 +99,6 @@ body,
 body {
   overflow: hidden;
   background-color: var(--bg);
-  /* Плоская бумага с едва заметным тёплым виньетированием */
-  background-image:
-    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(255, 255, 255, 0.7), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 110%, rgba(23, 20, 15, 0.05), transparent);
-  background-attachment: fixed;
 }
 
 #root {
@@ -136,11 +139,11 @@ time {
 
 ::selection {
   background: var(--wasabi);
-  color: var(--coffee-deep);
+  color: var(--on-accent);
 }
 
 :focus-visible {
-  outline: 2px solid var(--violet);
+  outline: 2px solid var(--accent-text);
   outline-offset: 2px;
 }
 

@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 8px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -24,7 +24,7 @@
 
 .primary {
   background-color: var(--aqua-soft);
-  color: var(--aqua);
+  color: var(--accent-text);
 }
 
 .secondary {
@@ -39,7 +39,7 @@
 
 .warning {
   background-color: var(--heat-soft);
-  color: var(--heat);
+  color: var(--rust);
 }
 
 .danger {

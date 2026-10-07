@@ -379,9 +379,8 @@
 }
 
 .modeTabActive {
-  background: var(--coffee);
+  background: var(--aqua);
   color: #fff;
-  box-shadow: var(--shadow-sm);
 }
 
 /* ===== Типы вопросов ===== */
@@ -391,7 +390,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--aqua);
+  color: var(--accent-text);
 }
 
 .kindHint {

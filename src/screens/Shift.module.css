@@ -51,7 +51,7 @@
 .historyDrinks {
   font-size: 14px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .historyMeta {

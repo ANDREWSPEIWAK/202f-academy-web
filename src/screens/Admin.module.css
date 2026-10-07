@@ -248,7 +248,7 @@
 .kindActive {
   border-color: var(--aqua);
   background: var(--aqua-soft);
-  color: var(--coffee-deep);
+  color: var(--ink);
 }
 
 .assignList {

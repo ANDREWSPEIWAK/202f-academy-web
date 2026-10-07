@@ -81,8 +81,8 @@
 }
 
 .message.user p {
-  background-color: var(--coffee);
-  color: var(--surface-2);
+  background-color: var(--aqua);
+  color: #ffffff;
   margin: 0;
 }
 

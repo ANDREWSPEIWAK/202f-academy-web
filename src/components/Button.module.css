@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 0.5rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -53,26 +53,23 @@
 
 /* Variants */
 .primary {
-  background: linear-gradient(135deg, var(--coffee) 0%, var(--coffee-deep) 100%);
-  color: #f2f9fd;
-  box-shadow: 0 2px 4px rgba(53, 30, 40, 0.25), 0 4px 12px rgba(53, 30, 40, 0.15);
+  background: var(--heat);
+  color: #ffffff;
 }
 
 .primary:hover:not(:disabled) {
-  box-shadow: 0 4px 8px rgba(53, 30, 40, 0.3), 0 8px 20px rgba(53, 30, 40, 0.2);
+  filter: brightness(1.1);
   transform: translateY(-1px);
 }
 
 .secondary {
   background-color: var(--surface-raised);
-  color: var(--coffee);
+  color: var(--ink);
   border: 1px solid var(--border-strong);
-  box-shadow: var(--shadow-sm);
 }
 
 .secondary:hover:not(:disabled) {
-  border-color: var(--coffee);
-  box-shadow: var(--shadow-md);
+  border-color: var(--ink);
 }
 
 .ghost {
@@ -87,13 +84,14 @@
 }
 
 .danger {
-  background: linear-gradient(135deg, var(--heat) 0%, var(--rust) 100%);
-  color: #fff5ef;
-  box-shadow: 0 2px 4px rgba(194, 65, 15, 0.25);
+  background: var(--heat-soft);
+  color: var(--rust);
+  border: 1px solid var(--danger-border);
 }
 
 .danger:hover:not(:disabled) {
-  box-shadow: 0 4px 10px rgba(194, 65, 15, 0.35);
+  background: var(--heat);
+  color: #ffffff;
 }
 
 .icon {

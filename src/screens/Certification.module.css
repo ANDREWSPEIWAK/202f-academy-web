@@ -87,7 +87,7 @@
 .reqCheckOn {
   background: var(--success);
   border-color: var(--success);
-  color: #f7fdff;
+  color: var(--on-accent);
 }
 
 .reqLabel {
@@ -112,8 +112,9 @@
   position: relative;
   overflow: hidden;
   padding: 14px;
-  border-radius: 12px;
-  background: var(--coffee-deep);
+  border-radius: 10px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -134,7 +135,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(247, 253, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .certNumber {
