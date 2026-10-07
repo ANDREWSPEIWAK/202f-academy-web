@@ -1,0 +1,330 @@
+.admin {
+  padding: 1.25rem 1rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.35rem 0;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--coffee);
+}
+
+.statLabel {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.hint {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 0.5rem 0 0 0;
+}
+
+.weakList {
+  display: flex;
+  flex-direction: column;
+}
+
+.weakRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.weakRow:last-child {
+  border-bottom: none;
+}
+
+.weakCategory {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.weakCount {
+  font-size: 0.85rem;
+  color: var(--heat);
+  font-weight: 600;
+}
+
+.testRows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.testRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.testRowTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.testName {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin: 0 0 0.15rem 0;
+}
+
+.testMeta {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.testWeak {
+  font-size: 0.8rem;
+  color: var(--heat);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== Команда ===== */
+
+.userList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.userRow:last-child {
+  border-bottom: none;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.userMeta {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.userAssign {
+  font-size: 0.78rem;
+  color: var(--rust);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* ===== Форма назначения ===== */
+
+.assignForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.field select,
+.field input {
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  min-height: 44px;
+}
+
+.field select:focus,
+.field input:focus {
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 3px var(--aqua-soft);
+}
+
+.kindRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.kindBtn {
+  padding: 0.65rem 0.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  min-height: 44px;
+}
+
+.kindActive {
+  border-color: var(--aqua);
+  background: var(--aqua-soft);
+  color: var(--ink);
+}
+
+.assignList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.assignRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+}
+
+.assignInfo {
+  min-width: 0;
+}
+
+.assignTarget {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.assignDetail {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0.15rem 0 0;
+  line-height: 1.45;
+}
+
+.assignActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.assignRemove {
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+
+.assignRemove:hover {
+  color: var(--heat);
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.skillCell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.skillCellValue {
+  font-size: 20px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.skillCellName {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}

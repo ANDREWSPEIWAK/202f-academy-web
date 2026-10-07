@@ -2,19 +2,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  font-weight: 500;
+  border-radius: 8px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
 .small {
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.72rem;
 }
 
 .medium {
-  padding: 0.375rem 0.875rem;
-  font-size: 0.875rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
 }
 
 .large {
@@ -23,26 +23,26 @@
 }
 
 .primary {
-  background-color: #5c3d2e;
-  color: #f5f1ed;
+  background-color: var(--aqua-soft);
+  color: var(--accent-text);
 }
 
 .secondary {
-  background-color: #e8e1d9;
-  color: #5c3d2e;
+  background-color: var(--coffee-tint);
+  color: var(--ink-soft);
 }
 
 .success {
-  background-color: #6b9d7f;
-  color: #f5f1ed;
+  background-color: var(--success-soft);
+  color: var(--success);
 }
 
 .warning {
-  background-color: #d4a574;
-  color: #f5f1ed;
+  background-color: var(--heat-soft);
+  color: var(--rust);
 }
 
 .danger {
-  background-color: #d97e6d;
-  color: #f5f1ed;
+  background-color: var(--rust-soft);
+  color: var(--rust);
 }

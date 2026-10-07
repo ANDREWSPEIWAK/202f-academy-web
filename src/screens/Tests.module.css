@@ -1,0 +1,546 @@
+.tests {
+  padding: 1.25rem 1rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.header {
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.35rem 0;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.testList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.testCard {
+  padding: 0.95rem;
+}
+
+.testLocked {
+  opacity: 0.6;
+}
+
+.testCardRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.testCardInfo {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.testCardTop {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.testCardLevel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.testCardTitle {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.testCardDesc {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.testCardScore {
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.scorePassed {
+  color: var(--success);
+}
+
+.scoreFailed {
+  color: var(--heat);
+}
+
+/* ===== Раннер ===== */
+
+.runnerHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.backButton {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--coffee);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  min-height: 44px;
+}
+
+.runnerTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.runnerCounter {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.questionCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+}
+
+.questionTop {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.questionCategory {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.questionText {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--surface);
+  cursor: pointer;
+  min-height: 48px;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.option:hover {
+  border-color: var(--coffee);
+}
+
+.optionSelected {
+  border-color: var(--aqua);
+  background: var(--aqua-soft);
+  box-shadow: 0 0 0 1px var(--aqua);
+}
+
+.optionLetter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: var(--coffee-tint);
+  color: var(--coffee);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.optionText {
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+/* ===== Результат ===== */
+
+.resultCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.resultPassed {
+  border-top: 3px solid var(--success);
+}
+
+.resultFailed {
+  border-top: 3px solid var(--heat);
+}
+
+.resultLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.resultScore {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ink);
+}
+
+.resultThreshold {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.resultHint {
+  font-size: 0.85rem;
+  color: var(--heat);
+  font-weight: 500;
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.weakList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.weakRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.weakRow:last-child {
+  border-bottom: none;
+}
+
+.weakCategory {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.weakScore {
+  font-size: 0.85rem;
+  color: var(--heat);
+  font-weight: 600;
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-left: 3px solid var(--heat);
+}
+
+.reviewQuestion {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.reviewWrong {
+  font-size: 0.85rem;
+  color: var(--heat);
+  margin: 0;
+}
+
+.reviewCorrect {
+  font-size: 0.85rem;
+  color: var(--success);
+  font-weight: 600;
+  margin: 0;
+}
+
+.reviewExplanation {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.resultActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ===== Режимы: контрольные / тренажёр ===== */
+
+.modeTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+.modeTab {
+  padding: 0.65rem;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.modeTabActive {
+  background: var(--aqua);
+  color: #fff;
+}
+
+/* ===== Типы вопросов ===== */
+
+.questionKind {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-text);
+}
+
+.kindHint {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0;
+  font-weight: 600;
+}
+
+.scenario {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: var(--coffee-tint);
+  border-left: 3px solid var(--coffee);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.optionLetterChecked {
+  background: var(--aqua);
+  color: #fff;
+}
+
+.optionUsed {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.numberBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.numberInput {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+  font-family: inherit;
+  min-height: 48px;
+}
+
+.numberInput:focus {
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 3px var(--aqua-soft);
+}
+
+.orderBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.orderSequence {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.orderSeqItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--aqua);
+  border-radius: 10px;
+  background: var(--aqua-soft);
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--ink);
+  font-family: inherit;
+  min-height: 44px;
+}
+
+.orderSeqNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--aqua);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.orderEmpty {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  padding: 0.4rem 0;
+}
+
+/* ===== Тренажёр ===== */
+
+.drillPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.drillCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-md);
+}
+
+.drillTitle {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.drillDesc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.drillMeta {
+  font-size: 0.82rem;
+  color: var(--coffee);
+  font-weight: 600;
+  margin: 0;
+}
+
+.drillSubTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem 0;
+}

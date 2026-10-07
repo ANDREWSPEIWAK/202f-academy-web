@@ -19,7 +19,7 @@
 }
 
 .modal {
-  background-color: #fafaf8;
+  background-color: var(--surface);
   border-radius: 16px 16px 0 0;
   max-height: 90vh;
   overflow-y: auto;
@@ -51,13 +51,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid #e8e1d9;
+  border-bottom: 1px solid var(--border);
 }
 
 .title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #2a2520;
+  color: var(--ink);
   margin: 0;
 }
 
@@ -66,7 +66,7 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #7a6f63;
+  color: var(--ink-soft);
   padding: 0;
   width: 32px;
   height: 32px;
@@ -78,8 +78,8 @@
 }
 
 .closeButton:hover {
-  background-color: #e8e1d9;
-  color: #5c3d2e;
+  background-color: var(--border);
+  color: var(--coffee);
 }
 
 .content {

@@ -11,7 +11,7 @@
 .label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #5c3d2e;
+  color: var(--coffee);
 }
 
 .inputWrapper {
@@ -24,10 +24,10 @@
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 1px solid #d4c9be;
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
-  background-color: #fafaf8;
-  color: #2a2520;
+  background-color: var(--surface);
+  color: var(--ink);
   transition: all 0.2s ease;
   font-family: inherit;
   -webkit-font-smoothing: antialiased;
@@ -39,20 +39,20 @@
 
 .input:focus {
   outline: none;
-  border-color: #5c3d2e;
-  box-shadow: 0 0 0 3px rgba(92, 61, 46, 0.1);
+  border-color: var(--coffee);
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .input.error {
-  border-color: #d97e6d;
+  border-color: var(--heat);
 }
 
 .input.error:focus {
-  box-shadow: 0 0 0 3px rgba(217, 126, 109, 0.1);
+  box-shadow: 0 0 0 3px var(--heat-soft);
 }
 
 .input::placeholder {
-  color: #a09a8f;
+  color: var(--text-faint);
 }
 
 .icon {
@@ -61,17 +61,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #7a6f63;
+  color: var(--ink-soft);
   pointer-events: none;
 }
 
 .errorText {
   font-size: 0.75rem;
-  color: #d97e6d;
+  color: var(--heat);
   font-weight: 500;
 }
 
 .helperText {
   font-size: 0.75rem;
-  color: #7a6f63;
+  color: var(--ink-soft);
 }

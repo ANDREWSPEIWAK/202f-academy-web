@@ -6,27 +6,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #5c3d2e;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
 }
 
 .percentage {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #5c3d2e;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--coffee);
 }
 
 .bar {
   width: 100%;
-  background-color: #e8e1d9;
+  background-color: var(--coffee-tint);
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #d4c9be;
+  border: 1px solid var(--border);
 }
 
 .bar.small {
@@ -34,7 +34,7 @@
 }
 
 .bar.medium {
-  height: 8px;
+  height: 9px;
 }
 
 .bar.large {
@@ -43,7 +43,8 @@
 
 .fill {
   height: 100%;
-  background: linear-gradient(90deg, #c89068 0%, #a87c5f 100%);
+  background: var(--wasabi);
   border-radius: 8px;
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px var(--wasabi-soft);
 }

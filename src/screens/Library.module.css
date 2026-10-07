@@ -1,0 +1,177 @@
+.library {
+  padding: 1.25rem 1rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.header {
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.35rem 0;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--coffee-tint);
+  padding: 0.3rem;
+  border-radius: 12px;
+}
+
+.tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.65rem 1rem;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  min-height: 44px;
+  transition: all 0.2s ease;
+}
+
+.tabActive {
+  background: var(--surface-raised);
+  color: var(--coffee);
+  box-shadow: var(--shadow-sm);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.recipeList,
+.resourceList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.recipeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.recipeTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.recipeName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.recipeDesc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.recipeIngredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ingredient {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--coffee);
+  background: var(--coffee-tint);
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+}
+
+.recipeMethod {
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.6;
+  background: var(--coffee-tint);
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.recipeMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.resourceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.resourceTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resourceDuration {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.resourceTitle {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.resourceDesc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}

@@ -1,0 +1,152 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brandMark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+}
+
+.userChip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--on-accent);
+  background: var(--wasabi);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adminLink {
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 36px;
+  transition: all 0.18s ease-out;
+}
+
+.adminLink:hover {
+  border-color: var(--heat);
+  color: var(--heat);
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Плавающая bento-капсула навигации */
+.tabBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
+  background: #000000;
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 0.4rem 0.35rem;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  background: none;
+  border: none;
+  padding: 0.45rem 0.7rem;
+  border-radius: 16px;
+  cursor: pointer;
+  color: var(--text-muted);
+  min-width: 58px;
+  min-height: 48px;
+  transition: all 0.18s ease-out;
+}
+
+.tabIcon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.tabLabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tabActive {
+  color: #ffffff;
+  background: var(--aqua);
+}
+
+@media (min-width: 768px) {
+  .tabBar {
+    justify-content: center;
+    gap: 1rem;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tab {
+    flex-direction: row;
+    gap: 0.45rem;
+    min-width: auto;
+  }
+
+  .tabLabel {
+    font-size: 0.8rem;
+  }
+
+  .content {
+    padding: 0 1rem;
+  }
+}
