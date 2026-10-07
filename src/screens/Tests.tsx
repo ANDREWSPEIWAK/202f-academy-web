@@ -387,7 +387,7 @@ const Tests: React.FC<TestsProps> = ({ initialTestId }) => {
           {kind === 'order' && (
             <div className={styles.orderBlock}>
               <p className={styles.kindHint}>Нажимайте шаги в правильной последовательности</p>
-              <ol className={styles.orderSequence} aria-label="В��ша последовательность">
+              <ol className={styles.orderSequence} aria-label="Ваша последовательность">
                 {(answer?.kind === 'order' ? answer.sequence : []).map((optIdx, pos) => (
                   <li key={pos}>
                     <button
