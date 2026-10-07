@@ -53,9 +53,9 @@ const Skills: React.FC<SkillsProps> = ({ onNavigate }) => {
   return (
     <div className={styles.skills}>
       <div className={styles.header}>
-        <h1 className={styles.title}>{t('skills.title')}</h1>
-        <p className={styles.subtitle}>{t('skills.subtitle')}</p>
-      </div>
+        <h1 className="srOnly">{t('skills.title')}</h1>
+        
+</div>
 
       <Card className={styles.summaryCard}>
         <div className={styles.summary}>

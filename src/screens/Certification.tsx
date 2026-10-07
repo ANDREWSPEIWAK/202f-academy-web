@@ -138,9 +138,9 @@ const Certification: React.FC = () => {
   return (
     <div className={styles.certification}>
       <div className={styles.header}>
-        <h1 className={styles.title}>{t('certification.title')}</h1>
-        <p className={styles.subtitle}>{t('certification.subtitle')}</p>
-      </div>
+        <h1 className="srOnly">{t('certification.title')}</h1>
+        
+</div>
 
       <div className={styles.levels}>
         {statuses.map((status) => {

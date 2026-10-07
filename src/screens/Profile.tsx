@@ -36,9 +36,9 @@ const Profile: React.FC = () => {
   return (
     <div className={styles.profile}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Профиль</h1>
-        <p className={styles.subtitle}>Квалификация, прогресс и достижения</p>
-      </div>
+        <h1 className="srOnly">Профиль</h1>
+        
+</div>
 
       <Card className={styles.summaryCard}>
         <div className={styles.summaryRow}>

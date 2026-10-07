@@ -58,7 +58,7 @@ const Discipline: React.FC = () => {
 
   return (
     <div className={styles.discipline}>
-      <h1 className={styles.title}>{t('discipline.title')}</h1>
+      <h1 className="srOnly">{t('discipline.title')}</h1>
 
       <Card>
         <ProgressBar value={Math.round((done / STANDARDS.length) * 100)} label={t('discipline.daily')} />

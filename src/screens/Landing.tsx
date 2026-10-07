@@ -54,12 +54,6 @@ const Landing: React.FC = () => {
   <Logo202 size={52} />
   </div>
         <h1 className={styles.title}>{t('landing.hero.title')}</h1>
-        <p className={styles.subtitle}>{t('landing.hero.sub')}</p>
-        <ul className={styles.points}>
-          <li>Junior · Skilled · PRO — 15 ступеней</li>
-          <li>Контрольные тесты · порог 85%</li>
-          <li>Практика на станции по чек-листам</li>
-        </ul>
       </div>
 
       <div className={styles.card}>

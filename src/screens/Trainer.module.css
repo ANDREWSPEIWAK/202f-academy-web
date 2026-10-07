@@ -17,7 +17,7 @@
   font-weight: 700;
   color: var(--ink);
   margin: 0 0 0.5rem 0;
-  font-family: Georgia, serif;
+  font-family: var(--font-display);
 }
 
 .description {

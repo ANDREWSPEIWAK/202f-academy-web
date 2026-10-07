@@ -132,11 +132,9 @@ const Tests: React.FC<TestsProps> = ({ initialTestId }) => {
     return (
       <div className={styles.tests}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Тесты</h1>
-          <p className={styles.subtitle}>
-            Контрольные — порог 85%, открываются после теории ступени. Тренажёр — адаптивная работа над слабыми местами.
-          </p>
-        </div>
+          <h1 className="srOnly">Тесты</h1>
+          
+</div>
 
         <div className={styles.modeTabs} role="tablist">
           <button
@@ -389,7 +387,7 @@ const Tests: React.FC<TestsProps> = ({ initialTestId }) => {
           {kind === 'order' && (
             <div className={styles.orderBlock}>
               <p className={styles.kindHint}>Нажимайте шаги в правильной последовательности</p>
-              <ol className={styles.orderSequence} aria-label="Ваша последовательность">
+              <ol className={styles.orderSequence} aria-label="В��ша последовательность">
                 {(answer?.kind === 'order' ? answer.sequence : []).map((optIdx, pos) => (
                   <li key={pos}>
                     <button
@@ -464,15 +462,9 @@ function DrillPanel({ onStart }: { onStart: () => void }) {
     <div className={styles.drillPanel}>
       <Card className={styles.drillCard}>
         <p className={styles.drillTitle}>Адаптивная тренировка</p>
-        <p className={styles.drillDesc}>
-          10 вопросов разных типов: расчёты, сценарии, последовательности. Движок подбирает вопросы по вашим слабым
-          категориям и расписанию повторений (spaced repetition).
-        </p>
-        {entries.length === 0 ? (
-          <p className={styles.drillMeta}>Первые сессии — диагностические: движок определит ваши сильные и слабые темы.</p>
-        ) : (
+        {entries.length > 0 && (
           <p className={styles.drillMeta}>
-            Категорий к повторению: {due} · всего отслеживается: {entries.length}
+            К повторению: {due} · отслеживается: {entries.length}
           </p>
         )}
         <Button fullWidth onClick={onStart}>

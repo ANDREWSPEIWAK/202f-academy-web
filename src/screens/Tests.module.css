@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--ink);
@@ -120,7 +120,7 @@
 }
 
 .runnerTitle {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--ink);
@@ -241,7 +241,7 @@
 }
 
 .resultScore {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: 3rem;
   font-weight: 700;
   margin: 0;
@@ -515,7 +515,7 @@
 }
 
 .drillTitle {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--ink);

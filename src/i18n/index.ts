@@ -28,7 +28,7 @@ const ru: Dict = {
   'nav.certification': 'Сертификация',
 
   // Landing
-  'landing.hero.title': 'Академия бариста нового уровня',
+  'landing.hero.title': 'Добро пожаловать',
   'landing.hero.sub': 'Путь Junior → Skilled → PRO: 15 ступеней, обязательные контрольные, порог 85%. Серьёзная система для серьёзной работы.',
   'landing.signin': 'Вход',
   'landing.signup': 'Регистрация',
@@ -275,7 +275,7 @@ const en: Dict = {
   'nav.journal': 'Journal',
   'nav.certification': 'Certification',
 
-  'landing.hero.title': 'The next level of barista education',
+  'landing.hero.title': 'Welcome',
   'landing.hero.sub': 'Junior → Skilled → PRO: 15 steps, mandatory control tests, 85% threshold. A serious system for serious work.',
   'landing.signin': 'Sign in',
   'landing.signup': 'Sign up',

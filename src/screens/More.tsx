@@ -145,7 +145,7 @@ const More: React.FC<MoreProps> = ({ onNavigate }) => {
 
   return (
     <div className={styles.more}>
-      <h1 className={styles.title}>{t('more.title')}</h1>
+      <h1 className="srOnly">{t('more.title')}</h1>
 
       <div className={styles.list}>
         {visible.map((item) => (
@@ -156,7 +156,6 @@ const More: React.FC<MoreProps> = ({ onNavigate }) => {
               </span>
               <div className={styles.itemText}>
                 <p className={styles.itemName}>{t(item.labelKey)}</p>
-                <p className={styles.itemDesc}>{item.desc}</p>
               </div>
               <span className={styles.chevron} aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

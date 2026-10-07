@@ -84,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
           <span className={styles.brandMark}>
             <Logo202 size={26} />
           </span>
-          <span className={styles.brandName}>{t('app.name')}</span>
+          <span className={styles.brandName}>{activeSection === 'home' ? t('app.name') : t(`nav.${activeSection}`)}</span>
         </div>
         {user && <span className={styles.userChip}>{user.name}</span>}
       </header>

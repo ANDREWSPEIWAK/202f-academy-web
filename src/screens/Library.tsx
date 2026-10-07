@@ -36,9 +36,9 @@ const Library: React.FC = () => {
   return (
     <div className={styles.library}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Библиотека</h1>
-        <p className={styles.subtitle}>ТТК напитков 202f и учебные материалы по стандартам SCA</p>
-      </div>
+        <h1 className="srOnly">Библиотека</h1>
+        
+</div>
 
       <div className={styles.tabs} role="tablist">
         <button

@@ -57,11 +57,9 @@ const Path: React.FC<PathProps> = ({ initialStepId, onGoToTest }) => {
   return (
     <div className={styles.path}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Путь квалификации</h1>
-        <p className={styles.subtitle}>
-          Три уровня по пять ступеней. Контрольные тесты обязательны, порог 85%. Перепрыгивать ступени нельзя.
-        </p>
-      </div>
+        <h1 className="srOnly">Путь квалификации</h1>
+        
+</div>
 
       {LEVELS.map((level) => {
         const steps = getStepsByLevel(level.id);
@@ -171,11 +169,6 @@ const StepDetail: React.FC<StepDetailProps> = ({ step, onBack, onGoToTest }) => 
             />
           ))}
         </div>
-        <p className={styles.blockHint}>
-          {lessonsDone
-            ? 'Теория ступени пройдена полностью.'
-            : 'Контрольный тест откроется после завершения всех уроков ступени.'}
-        </p>
       </section>
 
       <section className={styles.block}>
@@ -197,9 +190,6 @@ const StepDetail: React.FC<StepDetailProps> = ({ step, onBack, onGoToTest }) => 
               );
             })}
           </div>
-          <p className={styles.blockHint}>
-            Чек-лист закрывается только на станции. Каждый пункт подтверждается наставником.
-          </p>
         </Card>
       </section>
 
@@ -212,13 +202,8 @@ const StepDetail: React.FC<StepDetailProps> = ({ step, onBack, onGoToTest }) => 
                 {testPassed
                   ? `Сдан: лучший результат ${testResult?.bestScore}%`
                   : testResult
-                    ? `Попыток: ${testResult.attempts} · лучший результат ${testResult.bestScore}% (порог 85%)`
-                    : 'Не пройден · порог 85%'}
-              </p>
-              <p className={styles.testHint}>
-                {!lessonsDone
-                  ? 'Сначала завершите теорию ступени.'
-                  : 'Тест обязателен для завершения ступени. Пересдача возможна до достижения порога.'}
+                    ? `Попыток: ${testResult.attempts} · лучший результат ${testResult.bestScore}%`
+                    : 'Не пройден'}
               </p>
             </div>
             <Button
@@ -233,7 +218,7 @@ const StepDetail: React.FC<StepDetailProps> = ({ step, onBack, onGoToTest }) => 
 
       {status === 'completed' && (
         <Card className={styles.doneCard}>
-          <p className={styles.doneText}>Ступень завершена. Следующая ступень откроется с учётом XP-порога.</p>
+          <p className={styles.doneText}>Ступень завершена</p>
         </Card>
       )}
     </div>

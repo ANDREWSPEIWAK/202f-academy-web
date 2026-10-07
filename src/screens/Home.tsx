@@ -60,7 +60,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onOpenStep }) => {
     <div className={styles.home}>
       <div className={styles.header}>
         <h1 className={styles.greeting}>{greeting()}</h1>
-        <p className={styles.subtitle}>{t('app.tagline')}</p>
       </div>
 
       {myAssignments.length > 0 && (
@@ -103,7 +102,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onOpenStep }) => {
           <Badge variant={currentStep.isAttestation ? 'danger' : 'primary'}>{t(STATUS_LABEL_KEY[status])}</Badge>
         </div>
         <ProgressBar value={stepProgress} label={t('home.stepProgress')} />
-        <p className={styles.currentHint}>{currentStep.focus}</p>
         <Button fullWidth onClick={() => onOpenStep(currentStep.id)}>
           {stepProgress === 0 ? t('home.startStep') : t('home.continueStep')}
         </Button>
@@ -230,8 +228,6 @@ const Calculators: React.FC = () => {
         <span className={styles.calcEq}>=</span>
         <div className={styles.calcResult}>{r > 0 ? (y / r).toFixed(1) : '—'} г</div>
       </div>
-
-      <p className={styles.panelHint}>{t('calc.tempHint')}</p>
     </Card>
   );
 };
@@ -428,8 +424,6 @@ const Assistant: React.FC = () => {
           ))}
         </div>
       )}
-
-      <p className={styles.panelHint}>{t('assistant.hint')}</p>
     </Card>
   );
 };

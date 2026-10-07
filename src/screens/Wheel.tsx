@@ -128,7 +128,7 @@ const Wheel: React.FC = () => {
 
   return (
     <div className={styles.wheel}>
-      <h1 className={styles.title}>{t('wheel.title')}</h1>
+      <h1 className="srOnly">{t('wheel.title')}</h1>
 
       <div className={styles.wheelWrap}>
         <svg viewBox="0 0 220 220" className={styles.svg} role="img" aria-label={t('wheel.title')}>
@@ -178,8 +178,6 @@ const Wheel: React.FC = () => {
           </text>
         </svg>
       </div>
-
-      <p className={styles.hint}>{t('wheel.hint')}</p>
 
       {sel && (
         <Card>
