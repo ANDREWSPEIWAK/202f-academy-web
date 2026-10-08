@@ -23,7 +23,7 @@ export const useLearningStore = create<LearningState>()(persist(
     lessons: new Map(),
     userLessonProgress: new Map(),
 
-    setCourses: (courses: Course) => set({ courses: [courses] }),
+    setCourses: (courses: Course[]) => set({ courses }),
 
     addModule: (module: Module) => {
       const { modules } = get();

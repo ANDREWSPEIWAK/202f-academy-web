@@ -16,7 +16,6 @@ const Trainer: React.FC = () => {
     setMessages([...messages, { role: 'user', content: input }]);
     setInput('');
 
-    // Mock trainer response
     setTimeout(() => {
       const responses: Record<string, string> = {
         'TRAINER': 'Начни с самого вероятного фактора: что бы ты изменил первым — помол, дозу или выход?',
@@ -33,8 +32,7 @@ const Trainer: React.FC = () => {
   return (
     <div className={styles.trainer}>
       <div className={styles.header}>
-        <h1 className={styles.title}>AI Тренер</h1>
-        <p className={styles.description}>Обучение с помощью диалога</p>
+        <h1 className={styles.title}>Тренер</h1>
       </div>
 
       <div className={styles.modeSelector}>
