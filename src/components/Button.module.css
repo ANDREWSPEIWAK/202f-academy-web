@@ -48,14 +48,14 @@
 
 /* Variants */
 .primary {
-  background-color: #5c3d2e;
-  color: #f5f1ed;
-  box-shadow: 0 2px 4px rgba(92, 61, 46, 0.15);
+  background: var(--aqua);
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(67, 97, 238, 0.15);
 }
 
 .primary:hover:not(:disabled) {
-  background-color: #4a3127;
-  box-shadow: 0 4px 8px rgba(92, 61, 46, 0.25);
+  background: var(--aqua-hover);
+  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.25);
 }
 
 .secondary {

@@ -5,6 +5,29 @@
   background-color: #f5f1ed;
 }
 
+.brandMark {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.brandName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2a2520;
+  font-family: Georgia, serif;
+}
+
+.userChip {
+  display: flex;
+  align-items: center;
+  background-color: #e8e1d9;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  margin-left: auto;
+}
+
 .header {
   padding: 1.5rem 2rem;
   border-bottom: 1px solid #e8dfd7;

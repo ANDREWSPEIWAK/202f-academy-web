@@ -1,3 +1,9 @@
+:root {
+  --heat: #5c3d2e;
+  --aqua: #4361ee;
+  --aqua-hover: #3a56d4;
+}
+
 * {
   box-sizing: border-box;
 }
