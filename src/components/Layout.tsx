@@ -10,13 +10,6 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-// Mock translation function - in a real app, this would come from i18next or similar
-const t = (key: string): string => {
-  // Simple mock that returns the key itself - in dev, this helps identify missing translations
-  // In production, this would be replaced with actual i18n implementation
-  return key;
-};
-
 // Placeholder for Logo202 component - replace with actual logo implementation
 const Logo202 = ({ size }: { size: number }) => {
   return (
@@ -45,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
         <span className={styles.brandMark}>
           <Logo202 size={26} />
         </span>
-        <span className={styles.brandName}>{t('app.name')}</span>
+        <span className={styles.brandName}>202f Academy</span>
         {user && <span className={styles.userChip}>{user.name}</span>}
       </header>
       <main className={styles.main}>
