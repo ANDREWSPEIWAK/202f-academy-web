@@ -102,6 +102,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onOpenStep }) => {
           <Badge variant={currentStep.isAttestation ? 'danger' : 'primary'}>{t(STATUS_LABEL_KEY[status])}</Badge>
         </div>
         <ProgressBar value={stepProgress} label={t('home.stepProgress')} />
+        <p className={styles.currentHint}>{currentStep.focus}</p>
         <Button fullWidth onClick={() => onOpenStep(currentStep.id)}>
           {stepProgress === 0 ? t('home.startStep') : t('home.continueStep')}
         </Button>
