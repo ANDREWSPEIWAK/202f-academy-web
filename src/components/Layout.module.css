@@ -21,7 +21,7 @@
 .userChip {
   display: flex;
   align-items: center;
-  background-color: #e8e1d9;
+  background-color: var(--cream);
   border-radius: 12px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;

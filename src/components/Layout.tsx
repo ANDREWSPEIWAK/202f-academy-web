@@ -16,13 +16,13 @@ const Logo202 = ({ size }: { size: number }) => {
     <div style={{
       width: size,
       height: size,
-      backgroundColor: '#e8e1d9',
+      backgroundColor: 'var(--cream)',
       borderRadius: '50%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       fontWeight: 'bold',
-      color: '#5c3d2e'
+      color: 'var(--heat)'
     }}>
       AW
     </div>
