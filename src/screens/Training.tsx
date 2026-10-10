@@ -90,7 +90,7 @@ const Training: React.FC<TrainingProps> = ({ initialTaskId }) => {
     return (
       <div className={styles.training}>
         <div className={styles.header}>
-          <h1 className="srOnly">{t('training.title')}</h1>
+          <h1 className={styles.title}>{t('training.title')}</h1>
           
 </div>
 
