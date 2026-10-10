@@ -22,11 +22,9 @@ export const useTestStore = create()(persist((set, get) => ({
         const { questions } = get();
         return questions.get(questionId);
     },
-    submitTestAttempt: (attempt) => {
-        const { testAttempts } = get();
-        testAttempts.push(attempt);
-        set({ testAttempts });
-    },
+    submitTestAttempt: (attempt) => set((state) => ({
+        testAttempts: [...state.testAttempts, attempt]
+    })),
     getUserTestAttempts: (userId) => {
         const { testAttempts } = get();
         return testAttempts.filter((a) => a.userId === userId);
