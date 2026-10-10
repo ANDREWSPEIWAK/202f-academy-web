@@ -43,6 +43,8 @@
   --on-accent: #000000;
 
   /* Блоки и интерактив (алиасы прежних названий) */
+  --coffee: var(--ink);
+  --coffee-deep: var(--agate);
   --coffee-tint: rgba(255, 255, 255, 0.06);
 
   /* Electric Indigo — выбор, навигация, категории */
