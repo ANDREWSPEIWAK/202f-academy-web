@@ -145,7 +145,7 @@ const More: React.FC<MoreProps> = ({ onNavigate }) => {
 
   return (
     <div className={styles.more}>
-      <h1 className="srOnly">{t('more.title')}</h1>
+      <h1 className={styles.title}>{t('more.title')}</h1>
 
       <div className={styles.list}>
         {visible.map((item) => (
