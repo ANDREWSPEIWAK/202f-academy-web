@@ -3,11 +3,11 @@ import { persist } from 'zustand/middleware';
 export const useSkillStore = create()(persist((set, get) => ({
     skills: new Map(),
     userSkillProgress: new Map(),
-    addSkill: (skill) => {
-        const { skills } = get();
-        skills.set(skill.id, skill);
-        set({ skills });
-    },
+    addSkill: (skill) => set((state) => {
+        const next = new Map(state.skills);
+        next.set(skill.id, skill);
+        return { skills: next };
+    }),
     getSkill: (skillId) => {
         const { skills } = get();
         return skills.get(skillId);
