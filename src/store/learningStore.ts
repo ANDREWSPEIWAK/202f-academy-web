@@ -25,22 +25,22 @@ export const useLearningStore = create<LearningState>()(persist(
 
     setCourses: (courses: Course[]) => set({ courses }),
 
-    addModule: (module: Module) => {
-      const { modules } = get();
-      modules.set(module.id, module);
-      set({ modules });
-    },
+    addModule: (module: Module) => set((state) => {
+      const next = new Map(state.modules);
+      next.set(module.id, module);
+      return { modules: next };
+    }),
 
-    addLesson: (lesson: Lesson) => {
-      const { lessons } = get();
-      lessons.set(lesson.id, lesson);
-      set({ lessons });
-    },
+    addLesson: (lesson: Lesson) => set((state) => {
+      const next = new Map(state.lessons);
+      next.set(lesson.id, lesson);
+      return { lessons: next };
+    }),
 
-    markLessonCompleted: (userId: string, lessonId: string) => {
+    markLessonCompleted: (userId: string, lessonId: string) => set((state) => {
       const key = `${userId}-${lessonId}`;
-      const { userLessonProgress } = get();
-      const progress = userLessonProgress.get(key) || {
+      const next = new Map(state.userLessonProgress);
+      const progress = next.get(key) || {
         userId,
         lessonId,
         completed: false,
@@ -50,16 +50,16 @@ export const useLearningStore = create<LearningState>()(persist(
 
       progress.completed = true;
       progress.completedAt = new Date();
-      userLessonProgress.set(key, progress);
-      set({ userLessonProgress });
-    },
+      next.set(key, progress);
+      return { userLessonProgress: next };
+    }),
 
-    updateLessonProgress: (progress: UserLessonProgress) => {
-      const { userLessonProgress } = get();
+    updateLessonProgress: (progress: UserLessonProgress) => set((state) => {
+      const next = new Map(state.userLessonProgress);
       const key = `${progress.userId}-${progress.lessonId}`;
-      userLessonProgress.set(key, progress);
-      set({ userLessonProgress });
-    },
+      next.set(key, progress);
+      return { userLessonProgress: next };
+    }),
 
     getLessonProgress: (userId: string, lessonId: string) => {
       const { userLessonProgress } = get();
