@@ -7,6 +7,7 @@ on:
 jobs:
   run-e2es:
     runs-on: ubuntu-latest
+    if: github.event.deployment.state == 'success'
     steps:
       - uses: actions/checkout@v4
         with:
