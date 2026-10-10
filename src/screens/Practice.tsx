@@ -36,9 +36,8 @@ const Practice: React.FC = () => {
   return (
     <div className={styles.practice}>
       <div className={styles.header}>
-        <h1 className="srOnly">Практика</h1>
-        
-</div>
+        <h1 className={styles.title}>Практика</h1>
+      </div>
 
       <div className={styles.tabs}>
         {['timer', 'log', 'calculator'].map((tab) => (
