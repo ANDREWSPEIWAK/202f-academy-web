@@ -15,17 +15,6 @@ jobs:
         run: npm ci
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
-      - name: Create test directory and sample test
-        run: |
-          mkdir -p tests
-          cat > tests/example.spec.ts << 'EOF'
-          import { test, expect } from '@playwright/test';
-          
-          test('basic test', async ({ page }) => {
-            await page.goto(process.env.BASE_URL || '');
-            await expect(page).toHaveURL(process.env.BASE_URL || '');
-          });
-          EOF
       - name: Run tests
         run: npx playwright test
         env:
