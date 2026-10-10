@@ -87,9 +87,8 @@ const Admin: React.FC = () => {
   return (
     <div className={styles.admin}>
       <div className={styles.header}>
-        <h1 className="srOnly">Панель администратора</h1>
-        
-</div>
+        <h1 className={styles.title}>Панель администратора</h1>
+      </div>
 
       <div className={styles.statsGrid}>
         <Card>
