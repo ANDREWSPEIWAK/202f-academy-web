@@ -3,17 +3,12 @@ import { persist } from 'zustand/middleware';
 export const useBrewStore = create()(persist((set, get) => ({
     brewLogs: [],
     addBrewLog: (log) => {
-        const { brewLogs } = get();
-        brewLogs.push(log);
-        set({ brewLogs });
+        set((state) => ({ brewLogs: [...state.brewLogs, log] }));
     },
     updateBrewLog: (log) => {
-        const { brewLogs } = get();
-        const index = brewLogs.findIndex((b) => b.id === log.id);
-        if (index !== -1) {
-            brewLogs[index] = log;
-            set({ brewLogs });
-        }
+        set((state) => ({
+            brewLogs: state.brewLogs.map((b) => (b.id === log.id ? log : b)),
+        }));
     },
     deleteBrewLog: (id) => {
         const { brewLogs } = get();
