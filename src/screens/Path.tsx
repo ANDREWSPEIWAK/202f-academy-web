@@ -205,6 +205,7 @@ const StepDetail: React.FC<StepDetailProps> = ({ step, onBack, onGoToTest }) => 
                     ? `Попыток: ${testResult.attempts} · лучший результат ${testResult.bestScore}%`
                     : 'Не пройден'}
               </p>
+              <p className={styles.testHint}>Порог: 85% · пересдача доступна после разбора ошибок</p>
             </div>
             <Button
               onClick={() => onGoToTest(step.controlTestId)}
