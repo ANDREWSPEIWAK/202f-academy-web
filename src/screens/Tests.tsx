@@ -132,9 +132,8 @@ const Tests: React.FC<TestsProps> = ({ initialTestId }) => {
     return (
       <div className={styles.tests}>
         <div className={styles.header}>
-          <h1 className="srOnly">Тесты</h1>
-          
-</div>
+          <h1 className={styles.title}>Тесты</h1>
+        </div>
 
         <div className={styles.modeTabs} role="tablist">
           <button
