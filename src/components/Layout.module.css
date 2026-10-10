@@ -35,15 +35,6 @@
   box-shadow: 0 1px 3px rgba(42, 37, 32, 0.05);
 }
 
-.title {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #2a2520;
-  font-family: Georgia, serif;
-  letter-spacing: -0.5px;
-}
-
 .main {
   flex: 1;
   overflow-y: auto;
@@ -54,10 +45,6 @@
 }
 
 @media (min-width: 768px) {
-  .title {
-    font-size: 2.5rem;
-  }
-
   .header {
     padding: 2rem 3rem;
   }
