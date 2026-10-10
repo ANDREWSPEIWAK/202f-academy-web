@@ -57,9 +57,8 @@ const Path: React.FC<PathProps> = ({ initialStepId, onGoToTest }) => {
   return (
     <div className={styles.path}>
       <div className={styles.header}>
-        <h1 className="srOnly">Путь квалификации</h1>
-        
-</div>
+        <h1 className={styles.title}>Путь квалификации</h1>
+      </div>
 
       {LEVELS.map((level) => {
         const steps = getStepsByLevel(level.id);
