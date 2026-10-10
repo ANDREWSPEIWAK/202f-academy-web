@@ -23,7 +23,7 @@ const Shift: React.FC = () => {
   if (!open) {
     return (
       <div className={styles.shift}>
-        <h1 className="srOnly">{t('shift.title')}</h1>
+        <h1 className={styles.title}>{t('shift.title')}</h1>
         <Card>
           <p className={styles.empty}>{t('shift.noShift')}</p>
           <Button fullWidth onClick={openShift}>
@@ -61,7 +61,7 @@ const Shift: React.FC = () => {
 
   return (
     <div className={styles.shift}>
-      <h1 className="srOnly">{t('shift.title')}</h1>
+      <h1 className={styles.title}>{t('shift.title')}</h1>
 
       <Card className={styles.activeCard}>
         <div className={styles.activeTop}>
