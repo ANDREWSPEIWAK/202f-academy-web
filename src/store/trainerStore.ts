@@ -19,9 +19,11 @@ export const useTrainerStore = create<TrainerState>()(persist(
       set({ currentMode: mode });
     },
 
-    addMessage: (message: TrainerMessage) => set((state) => ({
-      messages: [...state.messages, message]
-    })),
+    addMessage: (message: TrainerMessage) => set((state) => 
+      state.messages.some((m) => m.id === message.id)
+        ? {}
+        : { messages: [...state.messages, message] }
+    ),
 
     getUserMessages: (userId: string) => {
       const { messages } = get();
