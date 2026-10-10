@@ -31,8 +31,7 @@ const Tests: React.FC = () => {
     if (filter === 'passed') return test.passed === true;
     if (filter === 'failed') return test.passed === false;
     if (filter === 'available') return test.passed === null;
-return true;
-    });
+  });
   
   return (
     <div className={styles.tests}>
