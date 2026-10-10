@@ -5,21 +5,21 @@ export const useLearningStore = create()(persist((set, get) => ({
     modules: new Map(),
     lessons: new Map(),
     userLessonProgress: new Map(),
-    setCourses: (courses) => set({ courses: [courses] }),
-    addModule: (module) => {
-        const { modules } = get();
-        modules.set(module.id, module);
-        set({ modules });
-    },
-    addLesson: (lesson) => {
-        const { lessons } = get();
-        lessons.set(lesson.id, lesson);
-        set({ lessons });
-    },
-    markLessonCompleted: (userId, lessonId) => {
+    setCourses: (courses) => set({ courses }),
+    addModule: (module) => set((state) => {
+        const next = new Map(state.modules);
+        next.set(module.id, module);
+        return { modules: next };
+    }),
+    addLesson: (lesson) => set((state) => {
+        const next = new Map(state.lessons);
+        next.set(lesson.id, lesson);
+        return { lessons: next };
+    }),
+    markLessonCompleted: (userId, lessonId) => set((state) => {
         const key = `${userId}-${lessonId}`;
-        const { userLessonProgress } = get();
-        const progress = userLessonProgress.get(key) || {
+        const next = new Map(state.userLessonProgress);
+        const progress = next.get(key) || {
             userId,
             lessonId,
             completed: false,
@@ -28,15 +28,15 @@ export const useLearningStore = create()(persist((set, get) => ({
         };
         progress.completed = true;
         progress.completedAt = new Date();
-        userLessonProgress.set(key, progress);
-        set({ userLessonProgress });
-    },
-    updateLessonProgress: (progress) => {
-        const { userLessonProgress } = get();
+        next.set(key, progress);
+        return { userLessonProgress: next };
+    }),
+    updateLessonProgress: (progress) => set((state) => {
+        const next = new Map(state.userLessonProgress);
         const key = `${progress.userId}-${progress.lessonId}`;
-        userLessonProgress.set(key, progress);
-        set({ userLessonProgress });
-    },
+        next.set(key, progress);
+        return { userLessonProgress: next };
+    }),
     getLessonProgress: (userId, lessonId) => {
         const { userLessonProgress } = get();
         return userLessonProgress.get(`${userId}-${lessonId}`);
