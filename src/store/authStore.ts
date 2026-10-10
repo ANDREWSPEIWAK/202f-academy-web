@@ -105,5 +105,9 @@ export const useAuthStore = create<AuthState>()(persist(
   }),
   {
     name: '202f-auth-store',
+    partialize: (state) => {
+      const { token, ...rest } = state;
+      return rest;
+    },
   }
 ));
