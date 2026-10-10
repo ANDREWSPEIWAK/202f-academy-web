@@ -12,12 +12,12 @@ export const useSkillStore = create()(persist((set, get) => ({
         const { skills } = get();
         return skills.get(skillId);
     },
-    updateSkillProgress: (progress) => {
-        const { userSkillProgress } = get();
+    updateSkillProgress: (progress) => set((state) => {
+        const next = new Map(state.userSkillProgress);
         const key = `${progress.userId}-${progress.skillId}`;
-        userSkillProgress.set(key, progress);
-        set({ userSkillProgress });
-    },
+        next.set(key, progress);
+        return { userSkillProgress: next };
+    }),
     getUserSkillProgress: (userId) => {
         const { userSkillProgress } = get();
         return Array.from(userSkillProgress.values()).filter((p) => p.userId === userId);
