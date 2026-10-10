@@ -1,5 +1,9 @@
 import { defineConfig } from '@playwright/test';
 
+if (!process.env.BASE_URL) {
+  throw new Error('BASE_URL environment variable is required');
+}
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
