@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import { coffeeConstants } from '../utils/constants';
 import styles from './Practice.module.css';
 
 const Practice: React.FC = () => {
@@ -10,12 +11,7 @@ const Practice: React.FC = () => {
   const [timerActive, setTimerActive] = useState(false);
   const [timerValue, setTimerValue] = useState(0);
 
-  const brewMethods = [
-    { id: 'V60', name: 'V60', bloomTime: 35, targetTime: 165, targetWater: 300.6 },
-    { id: 'KALITA', name: 'Kalita 185', bloomTime: 30, targetTime: 180, targetWater: 300 },
-    { id: 'AEROPRESS', name: 'AeroPress', bloomTime: 0, targetTime: 180, targetWater: 200 },
-    { id: 'ESPRESSO', name: 'Espresso', bloomTime: 0, targetTime: 27, targetWater: 36 },
-  ];
+  const brewMethods = Object.values(coffeeConstants.brewMethods);
 
   const currentMethod = brewMethods.find((m) => m.id === brewMethod);
 
