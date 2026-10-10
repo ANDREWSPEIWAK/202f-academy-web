@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import { calculators } from '../utils/calculators';
 import styles from './Practice.module.css';
 
 const Practice: React.FC = () => {
@@ -9,6 +10,12 @@ const Practice: React.FC = () => {
   const [brewMethod, setBrewMethod] = useState('V60');
   const [timerActive, setTimerActive] = useState(false);
   const [timerValue, setTimerValue] = useState(0);
+
+  const [brewRatioCoffee, setBrewRatioCoffee] = useState(18);
+  const [brewRatioRatio, setBrewRatioRatio] = useState('1:16.7');
+  const [eyDose, setEyDose] = useState(18);
+  const [eyBeverageWeight, setEyBeverageWeight] = useState(300);
+  const [eyTds, setEyTds] = useState(1.35);
 
   const brewMethods = [
     { id: 'V60', name: 'V60', bloomTime: 35, targetTime: 165, targetWater: 300.6 },
@@ -18,6 +25,9 @@ const Practice: React.FC = () => {
   ];
 
   const currentMethod = brewMethods.find((m) => m.id === brewMethod);
+
+  const brewRatioResult = calculators.brewRatio(brewRatioCoffee, calculators.parseRatio(brewRatioRatio));
+  const extractionYieldResult = calculators.extractionYield(eyDose, eyBeverageWeight, eyTds);
 
   React.useEffect(() => {
     if (!timerActive) return;
@@ -138,11 +148,21 @@ const Practice: React.FC = () => {
               <div className={styles.calculator}>
                 <h3 className={styles.formTitle}>Калькулятор отношения</h3>
                 <div className={styles.formGroup}>
-                  <Input label="Кофе (г)" type="number" defaultValue="18" />
-                  <Input label="Соотношение" placeholder="1:16.7" />
+                  <Input
+                    label="Кофе (г)"
+                    type="number"
+                    value={brewRatioCoffee}
+                    onChange={(e) => setBrewRatioCoffee(Number(e.target.value) || 0)}
+                  />
+                  <Input
+                    label="Соотношение"
+                    placeholder="1:16.7"
+                    value={brewRatioRatio}
+                    onChange={(e) => setBrewRatioRatio(e.target.value)}
+                  />
                 </div>
                 <div className={styles.result}>
-                  <p>Вода: <strong>300.6 г</strong></p>
+                  <p>Вода: <strong>{brewRatioResult} г</strong></p>
                 </div>
               </div>
             </Card>
@@ -151,12 +171,28 @@ const Practice: React.FC = () => {
               <div className={styles.calculator}>
                 <h3 className={styles.formTitle}>Калькулятор Extraction Yield</h3>
                 <div className={styles.formGroup}>
-                  <Input label="Доза (г)" type="number" defaultValue="18" />
-                  <Input label="Вес напитка (г)" type="number" defaultValue="300" />
-                  <Input label="TDS (%)" type="number" step="0.01" defaultValue="1.35" />
+                  <Input
+                    label="Доза (г)"
+                    type="number"
+                    value={eyDose}
+                    onChange={(e) => setEyDose(Number(e.target.value) || 0)}
+                  />
+                  <Input
+                    label="Вес напитка (г)"
+                    type="number"
+                    value={eyBeverageWeight}
+                    onChange={(e) => setEyBeverageWeight(Number(e.target.value) || 0)}
+                  />
+                  <Input
+                    label="TDS (%)"
+                    type="number"
+                    step="0.01"
+                    value={eyTds}
+                    onChange={(e) => setEyTds(Number(e.target.value) || 0)}
+                  />
                 </div>
                 <div className={styles.result}>
-                  <p>EY: <strong>22.5%</strong></p>
+                  <p>EY: <strong>{extractionYieldResult}%</strong></p>
                 </div>
               </div>
             </Card>
