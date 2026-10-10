@@ -22,25 +22,23 @@ export const useBrewStore = create<BrewState>()(persist(
   (set, get) => ({
     brewLogs: [],
 
-    addBrewLog: (log: BrewLog) => {
-      const { brewLogs } = get();
-      brewLogs.push(log);
-      set({ brewLogs });
-    },
+    addBrewLog: (log: BrewLog) => set((state) => ({
+      brewLogs: [...state.brewLogs, log]
+    })),
 
-    updateBrewLog: (log: BrewLog) => {
-      const { brewLogs } = get();
-      const index = brewLogs.findIndex((b) => b.id === log.id);
+    updateBrewLog: (log: BrewLog) => set((state) => {
+      const index = state.brewLogs.findIndex((b) => b.id === log.id);
       if (index !== -1) {
-        brewLogs[index] = log;
-        set({ brewLogs });
+        const next = [...state.brewLogs];
+        next[index] = log;
+        return { brewLogs: next };
       }
-    },
+      return {};
+    }),
 
-    deleteBrewLog: (id: string) => {
-      const { brewLogs } = get();
-      set({ brewLogs: brewLogs.filter((b) => b.id !== id) });
-    },
+    deleteBrewLog: (id: string) => set((state) => ({
+      brewLogs: state.brewLogs.filter((b) => b.id !== id)
+    })),
 
     getUserBrewLogs: (userId: string) => {
       const { brewLogs } = get();

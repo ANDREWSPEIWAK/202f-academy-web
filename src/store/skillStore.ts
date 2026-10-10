@@ -17,23 +17,23 @@ export const useSkillStore = create<SkillState>()(persist(
     skills: new Map(),
     userSkillProgress: new Map(),
 
-    addSkill: (skill: Skill) => {
-      const { skills } = get();
-      skills.set(skill.id, skill);
-      set({ skills });
-    },
+    addSkill: (skill: Skill) => set((state) => {
+      const next = new Map(state.skills);
+      next.set(skill.id, skill);
+      return { skills: next };
+    }),
 
     getSkill: (skillId: string) => {
       const { skills } = get();
       return skills.get(skillId);
     },
 
-    updateSkillProgress: (progress: UserSkillProgress) => {
-      const { userSkillProgress } = get();
+    updateSkillProgress: (progress: UserSkillProgress) => set((state) => {
+      const next = new Map(state.userSkillProgress);
       const key = `${progress.userId}-${progress.skillId}`;
-      userSkillProgress.set(key, progress);
-      set({ userSkillProgress });
-    },
+      next.set(key, progress);
+      return { userSkillProgress: next };
+    }),
 
     getUserSkillProgress: (userId: string) => {
       const { userSkillProgress } = get();
