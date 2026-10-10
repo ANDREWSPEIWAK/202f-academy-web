@@ -74,9 +74,8 @@ const Journal: React.FC = () => {
   return (
     <div className={styles.journal}>
       <div className={styles.header}>
-        <h1 className="srOnly">{t('journal.title')}</h1>
-        
-</div>
+        <h1 className={styles.title}>{t('journal.title')}</h1>
+      </div>
 
       {!adding && (
         <Button fullWidth onClick={() => setAdding(true)}>
