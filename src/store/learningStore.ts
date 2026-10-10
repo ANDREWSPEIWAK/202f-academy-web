@@ -33,6 +33,7 @@ export const useLearningStore = create<LearningState>()(persist(
     }),
 
     addLesson: (lesson: Lesson) => set((state) => {
+      if (state.lessons.has(lesson.id)) return {};
       const next = new Map(state.lessons);
       next.set(lesson.id, lesson);
       return { lessons: next };
