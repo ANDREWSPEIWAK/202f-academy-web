@@ -1,4 +1,5 @@
-export {};
+// User & Authentication
+export type UserRole = 'student' | 'instructor' | 'admin';
 
 export interface User {
   id: string;
@@ -19,8 +20,6 @@ export interface UserProfile {
   totalBrewLogsRecorded: number;
   joinedAt: Date;
 }
-
-export type UserRole = 'student' | 'instructor' | 'admin';
 
 export interface Course {
   id: string;
