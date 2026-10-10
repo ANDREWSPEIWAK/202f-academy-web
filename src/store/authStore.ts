@@ -20,7 +20,13 @@ export const useAuthStore = create<AuthState>()(persist(
     isAuthenticated: false,
     isLoading: false,
 
-    login: async (email: string, _password: string) => {
+    login: async (email: string, password: string) => {
+      if (!email || !email.includes('@')) {
+        throw new Error('Invalid email format');
+      }
+      if (!password || password.length < 6) {
+        throw new Error('Password must be at least 6 characters');
+      }
       set({ isLoading: true });
       try {
         // Mock authentication - replace with actual API call
