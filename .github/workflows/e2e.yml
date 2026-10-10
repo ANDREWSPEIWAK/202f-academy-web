@@ -2,6 +2,7 @@ name: End to End Tests
 
 on:
   deployment:
+    types: [completed]
 
 jobs:
   run-e2es:
