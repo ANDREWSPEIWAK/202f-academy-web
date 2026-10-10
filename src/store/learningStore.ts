@@ -26,6 +26,7 @@ export const useLearningStore = create<LearningState>()(persist(
     setCourses: (courses: Course[]) => set({ courses }),
 
     addModule: (module: Module) => set((state) => {
+      if (state.modules.has(module.id)) return {};
       const next = new Map(state.modules);
       next.set(module.id, module);
       return { modules: next };
