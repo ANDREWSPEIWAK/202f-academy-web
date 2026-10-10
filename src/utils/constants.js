@@ -18,6 +18,15 @@ export const coffeeConstants = {
             defaultDose: 18,
             defaultRatio: 16.7,
         },
+        KALITA: {
+            id: 'KALITA',
+            name: 'Kalita 185',
+            bloomTime: 30,
+            targetTime: 180,
+            targetWater: 300,
+            defaultDose: 18,
+            defaultRatio: 16.7,
+        },
         AEROPRESS: {
             id: 'AEROPRESS',
             name: 'AeroPress',
