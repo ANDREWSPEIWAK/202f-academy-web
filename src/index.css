@@ -43,8 +43,6 @@
   --on-accent: #000000;
 
   /* Блоки и интерактив (алиасы прежних названий) */
-  --coffee: #ffffff;
-  --coffee-deep: #465055;
   --coffee-tint: rgba(255, 255, 255, 0.06);
 
   /* Electric Indigo — выбор, навигация, категории */
@@ -64,9 +62,6 @@
   --wasabi: #c3f03c;
   --wasabi-soft: rgba(195, 240, 60, 0.16);
   --lime: var(--wasabi);
-  --amber: var(--wasabi);
-  --amber-soft: var(--wasabi-soft);
-  --jade: #8a979c;
   --success: var(--wasabi);
   --success-soft: var(--wasabi-soft);
 
