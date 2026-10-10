@@ -33,9 +33,8 @@ const Trainer: React.FC = () => {
   return (
     <div className={styles.trainer}>
       <div className={styles.header}>
-        <h1 className="srOnly">AI Тренер</h1>
-        
-</div>
+        <h1 className={styles.title}>AI Тренер</h1>
+      </div>
 
       <div className={styles.modeSelector}>
         {['TRAINER', 'GUEST', 'EXAM'].map((m) => (
