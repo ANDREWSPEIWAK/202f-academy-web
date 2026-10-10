@@ -13,8 +13,6 @@ jobs:
           ref: ${{ github.event.deployment.sha }}
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright test runner
-        run: npm i -D @playwright/test
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
       - name: Create test directory and sample test
