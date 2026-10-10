@@ -462,11 +462,17 @@ function DrillPanel({ onStart }: { onStart: () => void }) {
     <div className={styles.drillPanel}>
       <Card className={styles.drillCard}>
         <p className={styles.drillTitle}>Адаптивная тренировка</p>
+        <p className={styles.drillDesc}>
+          10 вопросов разных типов: расчёты, сценарии, последовательности. Движок подбирает вопросы по вашим слабым категориям и расписанию интервальных повторений.
+        </p>
         {entries.length > 0 && (
           <p className={styles.drillMeta}>
             К повторению: {due} · отслеживается: {entries.length}
           </p>
         )}
+        <p className={styles.drillMeta}>
+          Первая сессия — диагностическая: движок определит сильные и слабые темы.
+        </p>
         <Button fullWidth onClick={onStart}>
           Начать тренировку ({DRILL_SIZE} вопросов)
         </Button>
