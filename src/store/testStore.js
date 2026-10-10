@@ -9,11 +9,11 @@ export const useTestStore = create()(persist((set, get) => ({
         next.set(test.id, test);
         return { tests: next };
     }),
-    addQuestion: (question) => {
-        const { questions } = get();
-        questions.set(question.id, question);
-        set({ questions });
-    },
+    addQuestion: (question) => set((state) => {
+        const next = new Map(state.questions);
+        next.set(question.id, question);
+        return { questions: next };
+    }),
     getTest: (testId) => {
         const { tests } = get();
         return tests.get(testId);
