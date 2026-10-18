@@ -79,7 +79,7 @@
 
 .closeButton:hover {
   background-color: var(--border);
-  color: var(--coffee);
+  color: var(--ink);
 }
 
 .content {

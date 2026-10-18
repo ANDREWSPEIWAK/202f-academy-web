@@ -111,7 +111,7 @@
   align-self: flex-start;
   background: none;
   border: none;
-  color: var(--coffee);
+  color: var(--ink-soft);
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
@@ -184,7 +184,7 @@
 }
 
 .option:hover {
-  border-color: var(--coffee);
+  border-color: var(--ink);
 }
 
 .optionSelected {
@@ -200,8 +200,8 @@
   width: 24px;
   height: 24px;
   border-radius: 6px;
-  background: var(--coffee-tint);
-  color: var(--coffee);
+  background: var(--white-tint);
+  color: var(--ink);
   font-size: 0.75rem;
   font-weight: 700;
   flex-shrink: 0;
@@ -403,8 +403,8 @@
 .scenario {
   padding: 0.85rem 1rem;
   border-radius: 10px;
-  background: var(--coffee-tint);
-  border-left: 3px solid var(--coffee);
+  background: var(--white-tint);
+  border-left: 3px solid var(--ink);
   font-size: 0.88rem;
   line-height: 1.55;
   color: var(--ink);
@@ -531,7 +531,7 @@
 
 .drillMeta {
   font-size: 0.82rem;
-  color: var(--coffee);
+  color: var(--ink-soft);
   font-weight: 600;
   margin: 0;
 }

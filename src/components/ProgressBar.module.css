@@ -18,12 +18,12 @@
 .percentage {
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--coffee);
+  color: var(--ink);
 }
 
 .bar {
   width: 100%;
-  background-color: var(--coffee-tint);
+  background-color: var(--white-tint);
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border);

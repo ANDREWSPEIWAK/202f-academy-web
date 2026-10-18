@@ -45,12 +45,12 @@
 }
 
 .tab:hover {
-  color: var(--coffee);
+  color: var(--ink);
 }
 
 .tab.active {
-  color: var(--coffee);
-  border-bottom-color: var(--coffee);
+  color: var(--ink);
+  border-bottom-color: var(--ink);
 }
 
 .content {
@@ -88,7 +88,7 @@
 .timerDisplay {
   font-size: 4rem;
   font-weight: 700;
-  color: var(--coffee);
+  color: var(--ink);
   font-family: 'Monaco', 'Courier New', monospace;
   letter-spacing: 0.1em;
 }
@@ -110,7 +110,7 @@
 .bloomInfo p {
   margin: 0;
   font-size: 0.875rem;
-  color: var(--coffee);
+  color: var(--ink);
   font-weight: 600;
 }
 
@@ -151,7 +151,7 @@
 .result p {
   margin: 0;
   font-size: 1rem;
-  color: var(--coffee);
+  color: var(--ink);
 }
 
 .result strong {

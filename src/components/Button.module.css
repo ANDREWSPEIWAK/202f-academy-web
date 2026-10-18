@@ -74,13 +74,13 @@
 
 .ghost {
   background-color: transparent;
-  color: var(--coffee);
+  color: var(--ink);
   border: 1px solid var(--border-strong);
 }
 
 .ghost:hover:not(:disabled) {
-  background-color: var(--coffee-tint);
-  border-color: var(--coffee);
+  background-color: var(--white-tint);
+  border-color: var(--ink);
 }
 
 .danger {
