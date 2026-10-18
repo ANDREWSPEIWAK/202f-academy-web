@@ -8,6 +8,9 @@ export default defineConfig({
     open: true,
     allowedHosts: true
   },
+  resolve: {
+    extensions: ['.mjs', '.mts', '.ts', '.jsx', '.tsx', '.js', '.json']
+  },
   build: {
     outDir: 'dist',
     sourcemap: false,
