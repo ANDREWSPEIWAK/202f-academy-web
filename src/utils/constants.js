@@ -18,7 +18,6 @@ export const coffeeConstants = {
             defaultDose: 18,
             defaultRatio: 16.7,
         },
-        KALITA: coffeeConstants.brewMethods.KALITA_185,
         AEROPRESS: {
             id: 'AEROPRESS',
             name: 'AeroPress',
