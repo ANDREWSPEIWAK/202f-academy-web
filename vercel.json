@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "devPort": 5173,
+  "installCommand": "npm install",
+  "regions": ["iad1"],
+  "env": {
+    "VITE_API_URL": {
+      "description": "API base URL for progress sync",
+      "type": "string"
+    }
+  },
+  "crons": []
+}

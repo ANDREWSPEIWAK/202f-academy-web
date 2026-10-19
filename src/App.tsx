@@ -1,11 +1,9 @@
-import { useState } from 'react';
-import Layout, { NavSection } from './components/Layout';
-import Landing from './screens/Landing';
+import React, { useState } from 'react';
+import Layout from './components/Layout';
 import Home from './screens/Home';
 import Path from './screens/Path';
 import Tests from './screens/Tests';
 import Shift from './screens/Shift';
-import More from './screens/More';
 import Library from './screens/Library';
 import Trainer from './screens/Trainer';
 import Practice from './screens/Practice';
@@ -17,55 +15,45 @@ import Skills from './screens/Skills';
 import Training from './screens/Training';
 import Journal from './screens/Journal';
 import Certification from './screens/Certification';
-import { useAuthStore } from './store/authStore';
-import './App.css';
+import Academy from './screens/Academy';
+import type { NavSection } from './components/Layout';
 
-function App() {
-  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-  const [activeSection, setActiveSection] = useState<NavSection>('home');
-  const [pathStepId, setPathStepId] = useState<string | null>(null);
-  const [testId, setTestId] = useState<string | null>(null);
+const SCREENS: Record<NavSection, React.ComponentType<any>> = {
+  home: Home,
+  path: Path,
+  tests: Tests,
+  shift: Shift,
+  more: MorePlaceholder,
+  library: Library,
+  trainer: Trainer,
+  practice: Practice,
+  profile: Profile,
+  discipline: Discipline,
+  wheel: Wheel,
+  admin: Admin,
+  skills: Skills,
+  training: Training,
+  journal: Journal,
+  certification: Certification,
+  academy: Academy,
+};
 
-  const openStep = (stepId: string) => {
-    setPathStepId(stepId);
-    setActiveSection('path');
-  };
-
-  const goToTest = (id: string) => {
-    setTestId(id);
-    setActiveSection('tests');
-  };
-
-  const navigate = (section: NavSection) => {
-    setPathStepId(null);
-    setTestId(null);
-    setActiveSection(section);
-  };
-
-  if (!isAuthenticated) {
-    return <Landing />;
-  }
-
+function MorePlaceholder() {
   return (
-    <Layout activeSection={activeSection} onNavigate={navigate}>
-      {activeSection === 'home' && <Home onNavigate={navigate} onOpenStep={openStep} />}
-      {activeSection === 'path' && <Path initialStepId={pathStepId} onGoToTest={goToTest} />}
-      {activeSection === 'tests' && <Tests initialTestId={testId} />}
-      {activeSection === 'shift' && <Shift />}
-      {activeSection === 'more' && <More onNavigate={navigate} />}
-      {activeSection === 'library' && <Library />}
-      {activeSection === 'trainer' && <Trainer />}
-      {activeSection === 'practice' && <Practice />}
-      {activeSection === 'profile' && <Profile />}
-      {activeSection === 'discipline' && <Discipline />}
-      {activeSection === 'wheel' && <Wheel />}
-      {activeSection === 'admin' && <Admin />}
-      {activeSection === 'skills' && <Skills onNavigate={navigate} />}
-      {activeSection === 'training' && <Training />}
-      {activeSection === 'journal' && <Journal />}
-      {activeSection === 'certification' && <Certification />}
-    </Layout>
+    <div className="p-6 text-center text-[#6b6b5c]">
+      <p className="text-sm">Раздел в разработке</p>
+    </div>
   );
 }
 
-export default App;
+export default function App() {
+  const [activeSection, setActiveSection] = useState<NavSection>('path');
+
+  const Screen = SCREENS[activeSection];
+
+  return (
+    <Layout activeSection={activeSection} onNavigate={setActiveSection}>
+      {Screen && <Screen />}
+    </Layout>
+  );
+}

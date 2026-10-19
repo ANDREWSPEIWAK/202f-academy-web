@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ===== 202 Barista Academy — Dark-first дизайн-токены =====
    Палитра: Black #000000 · Agate Grey #465055 · White #FFFFFF ·
    Red #F03250 (бренд, CTA) · Electric Indigo #523CD7 (выбор, навигация) ·
@@ -6,106 +10,244 @@
    Типографика: Space Grotesk (display) · Plus Jakarta Sans (body) ·
    Space Mono (данные и метрики). */
 
-:root {
-  color-scheme: dark;
+@layer base {
+  :root {
+    color-scheme: dark;
 
-  /* Border radius scale */
-  --radius-sm: 8px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 16px;
-  --radius-full: 999px;
+    /* Border radius scale */
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 16px;
+    --radius-full: 999px;
 
-  /* Типографика */
-  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'Space Mono', ui-monospace, 'SF Mono', monospace;
+    /* Типографика */
+    --font-display: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Space Mono', ui-monospace, 'SF Mono', monospace;
 
-  /* Фон и поверхности: чёрный → графит */
-  --black: #000000;
-  --agate: #465055;
-  --bg: #000000;
-  --surface: #0b0d0e;
-  --surface-raised: #141819;
-  --surface-2: #1b2124;
-  --cool-blue: #1b2124; /* алиас совместимости */
+    /* Фон и поверхности: чёрный → графит */
+    --black: #000000;
+    --agate: #465055;
+    --bg: #000000;
+    --surface: #0b0d0e;
+    --surface-raised: #141819;
+    --surface-2: #1b2124;
+    --cool-blue: #1b2124; /* алиас совместимости */
 
-  /* Границы */
-  --border: #262e32;
-  --border-strong: #465055;
+    /* Границы */
+    --border: #262e32;
+    --border-strong: #465055;
 
-  /* Текст */
-  --ink: #ffffff;
-  --ink-soft: #b4bec2;
-  --text: var(--ink);
-  --text-muted: var(--ink-soft);
-  --text-faint: #8a979c;
-  --on-accent: #000000;
+    /* Текст */
+    --ink: #ffffff;
+    --ink-soft: #b4bec2;
+    --text: var(--ink);
+    --text-muted: var(--ink-soft);
+    --text-faint: #8a979c;
+    --on-accent: #000000;
 
-  /* Блоки и интерактив (алиасы прежних названий) */
-  --white-tint: rgba(255, 255, 255, 0.06);
+    /* Блоки и интерактив (алиасы прежних названий) */
+    --white-tint: rgba(255, 255, 255, 0.06);
 
-  /* Electric Indigo — выбор, навигация, категории */
-  --violet: #523cd7;
-  --violet-soft: rgba(82, 60, 215, 0.24);
-  --aqua: #523cd7;
-  --aqua-soft: var(--violet-soft);
-  --accent-text: #9b8cff;
+    /* Эталонные цвета живого сайта */
+    --iron-deep: #161c1c;
+    --iron: #222a2a;
+    --iron-card: #263030;
+    --aqua: #4FBBBC;
+    --rust: #EC4624;
+    --heat: #F39120;
+    --cream: #E2DAC2;
+    --muted: #c9c0a6;
+    --faint: #6b6b5c;
+    --border-tk: #33403f;
+    --surface-tk: #1a2121;
 
-  /* Red — бренд, главные действия, критичное */
-  --heat: #f03250;
-  --heat-soft: rgba(240, 50, 80, 0.18);
-  --rust: #ff5c75;
-  --rust-soft: rgba(255, 92, 117, 0.16);
+    /* Electric Indigo — выбор, навигация, категории */
+    --violet: #523cd7;
+    --violet-soft: rgba(82, 60, 215, 0.24);
+    --accent-text: #9b8cff;
 
-  /* Yellow Green — прогресс, достижения, успех */
-  --wasabi: #c3f03c;
-  --wasabi-soft: rgba(195, 240, 60, 0.16);
-  --lime: var(--wasabi);
-  --success: var(--wasabi);
-  --success-soft: var(--wasabi-soft);
+    /* Red — бренд, главные действия, критичное */
+    --heat-old: #f03250;
+    --heat-soft: rgba(240, 50, 80, 0.18);
+    --rust-old: #ff5c75;
+    --rust-soft: rgba(255, 92, 117, 0.16);
 
-  /* Глубина — тени на чёрном */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.55);
-  --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.65);
+    /* Yellow Green — прогресс, достижения, успех */
+    --wasabi: #c3f03c;
+    --wasabi-soft: rgba(195, 240, 60, 0.16);
+    --lime: var(--wasabi);
+    --success: var(--wasabi);
+    --success-soft: var(--wasabi-soft);
 
-  /* Алиасы для новых экранов (единая палитра) */
-  --accent: var(--aqua);
-  --accent-2: var(--wasabi);
-  --accent-glow: rgba(82, 60, 215, 0.5);
-  --accent-soft: var(--aqua-soft);
-  --accent-border: rgba(155, 140, 255, 0.5);
-  --danger: var(--heat);
-  --danger-border: rgba(240, 50, 80, 0.55);
-  --warning: var(--rust);
-  --warning-border: rgba(255, 92, 117, 0.5);
+    /* Глубина — тени на чёрном */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.65);
+
+    /* Алиасы для новых экранов (единая палитра) */
+    --accent: var(--aqua);
+    --accent-2: var(--wasabi);
+    --accent-glow: rgba(82, 60, 215, 0.5);
+    --accent-soft: var(--violet-soft);
+    --accent-border: rgba(155, 140, 255, 0.5);
+    --danger: var(--heat-old);
+    --danger-border: rgba(240, 50, 80, 0.55);
+    --warning: var(--rust-old);
+    --warning-border: rgba(255, 92, 117, 0.5);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  body {
+    overflow: hidden;
+    background-color: var(--bg);
+  }
+
+  #root {
+    width: 100%;
+    height: 100vh;
+  }
 }
 
-* {
-  box-sizing: border-box;
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono2 {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  .kicker {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .card-ind {
+    background: var(--iron);
+    border: 1px solid var(--border-tk);
+    border-radius: var(--radius-xl);
+  }
+  .card-ind-hover {
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .card-ind-hover:hover {
+    transform: translateY(-2px);
+    border-color: var(--aqua);
+  }
+  .btn-aqua {
+    background: var(--aqua);
+    color: #000;
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: opacity 0.15s ease;
+  }
+  .btn-aqua:hover {
+    opacity: 0.9;
+  }
+  .btn-aqua:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .btn-rust {
+    background: var(--rust);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: opacity 0.15s ease;
+  }
+  .btn-rust:hover {
+    opacity: 0.9;
+  }
+  .btn-ghost-ind {
+    background: transparent;
+    color: var(--aqua);
+    border: 1px solid var(--aqua);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    transition: opacity 0.15s ease;
+  }
+  .btn-ghost-ind:hover {
+    opacity: 0.8;
+  }
+  .chip-ind {
+    background: var(--surface-tk);
+    border: 1px solid var(--border-tk);
+    color: var(--cream);
+    border-radius: var(--radius-full);
+    transition: all 0.15s ease;
+  }
+  .chip-ind.on {
+    background: var(--aqua);
+    color: #000;
+    border-color: var(--aqua);
+  }
+  .anim-rise {
+    animation: anim-rise 0.4s ease-out both;
+  }
+  .anim-pop {
+    animation: anim-pop 0.3s ease-out both;
+  }
+  @keyframes anim-rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes anim-pop {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--ink);
-  line-height: 1.55;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-body {
-  overflow: hidden;
-  background-color: var(--bg);
+::selection {
+  background: var(--wasabi);
+  color: var(--on-accent);
 }
 
-#root {
-  width: 100%;
-  height: 100vh;
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
 }
 
 /* ===== Типографическая система ===== */
@@ -137,35 +279,4 @@ time {
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 1.05;
-}
-
-::selection {
-  background: var(--wasabi);
-  color: var(--on-accent);
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent-text);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
