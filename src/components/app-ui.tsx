@@ -51,18 +51,20 @@ export function ProgressRing({
         style={{ strokeDasharray: circumference, strokeDashoffset: offset, transition: 'stroke-dashoffset 0.3s ease' }}
       />
       {children && (
-        <text
-          x={size / 2}
-          y={size / 2 + 6}
-          textAnchor="middle"
-          fill="#E2DAC2"
-          fontFamily='"JetBrains Mono", monospace'
-          fontSize={Math.round(size * 0.32)}
-          fontWeight="bold"
-          letterSpacing="-0.02em"
-        >
-          {children}
-        </text>
+        <g transform="rotate(90)" style={{ transformOrigin: `${size / 2}px ${size / 2}px` }}>
+          <text
+            x={size / 2}
+            y={size / 2 + 6}
+            textAnchor="middle"
+            fill="#E2DAC2"
+            fontFamily='"JetBrains Mono", monospace'
+            fontSize={Math.round(size * 0.32)}
+            fontWeight="bold"
+            letterSpacing="-0.02em"
+          >
+            {children}
+          </text>
+        </g>
       )}
     </svg>
   );

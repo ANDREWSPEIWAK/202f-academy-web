@@ -476,7 +476,7 @@ const Tests: React.FC = () => {
     return (
       <div className="bg-[#161c1c] min-h-screen text-[#E2DAC2] font-body anim-rise">
         <SectionHead kicker="Проверка знаний" title="Тесты и экзамен" sub={`Рецепты · карточки · первый шаг · ${ttkCategories.length} категорий`} />
-        <div className="mx-auto max-w-5xl px-4 py-10">
+        <div className="mx-auto max-w-5xl px-4 pb-28 py-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
             {modeDefs.map((m, i) => (
               <ModeCard key={m.id} m={m} index={i} active={mode === m.id} onClick={() => enterMode(m.id)} />
