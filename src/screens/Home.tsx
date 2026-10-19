@@ -35,7 +35,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onOpenStep }) => {
   const [tool, setTool] = useState<QuickTool>(null);
 
   const currentStep: Step = getCurrentStep(state);
-  const level = getLevelInfo(currentStep.level);
+  const level = getLevelInfo(state.xp);
   const stepProgress = getStepProgress(currentStep, state);
   const status = getStepStatus(currentStep, state);
 

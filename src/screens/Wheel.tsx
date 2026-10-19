@@ -1,193 +1,79 @@
 import React, { useState } from 'react';
-import Card from '../components/Card';
-import styles from './Wheel.module.css';
-import { useT } from '../i18n';
+import { wheelCategories, wheelColors } from '../data/wheel';
+import { SectionHead, Pill } from '../components/app-ui';
 
-/**
- * Вкусовое колесо по мотивам SCA Coffee Tasting Flavour Wheel.
- * Концентрические сегменты: категория → подкатегории.
- */
-interface Sub {
-  name: string;
-  desc: string;
-}
-interface Cat {
-  name: string;
-  color: string;
-  desc: string;
-  subs: Sub[];
-}
-
-const WHEEL: Cat[] = [
-  {
-    name: 'Сладость',
-    color: '#c3f03c',
-    desc: 'Сладость от карамелизации сахаров и карамелизации при обжарке. Признак хорошего развития зерна.',
-    subs: [
-      { name: 'Карамель', desc: 'Жжёный сахар, ирис — признак средней обжарки и сладкого зерна.' },
-      { name: 'Шоколад', desc: 'Какао, тёмный шоколад — типично для бразильских и центральноамериканских лотов.' },
-      { name: 'Мёд', desc: 'Медовая сладость с цветочным оттенком, часто у honey-обработки.' },
-      { name: 'Ваниль', desc: 'Мягкая сливочная сладость, аромат ванили.' },
-    ],
-  },
-  {
-    name: 'Фрукты',
-    color: '#f03250',
-    desc: 'Фруктовые ноты зависят от сорта, терруара и обработки. Натуральная обработка усиливает ягодность.',
-    subs: [
-      { name: 'Ягоды', desc: 'Чёрная смородина, малина — классика эфиопских и кенийских лотов.' },
-      { name: 'Цитрус', desc: 'Лимон, апельсин, бергамот — яркая кислотность высокогорной арабики.' },
-      { name: 'Косточковые', desc: 'Персик, абрикос, вишня — сладкая кислотность.' },
-      { name: 'Тропические', desc: 'Ананас, манго, маракуйя — интенсивный профиль, часто у анаэробной обработки.' },
-    ],
-  },
-{
-    name: 'Цветы',
-    color: '#e8c8e8',
-    desc: 'Флёры — маркер спелости зерна и деликатной обжарки. Ломаются при перестарке первыми.',
-    subs: [
-      { name: 'Жасмин', desc: 'Чайный, деликатный цветочный аромат — визитная карточка эфиопов.' },
-      { name: 'Роза', desc: 'Нота розы в герметичных лотах Гейши и высокогорной арабики.' },
-    ],
-  },
-  {
-    name: 'Пряности',
-    color: '#523cd7',
-    desc: 'Пряные ноты дают происхождение (Индия, Индонезия) и развитие при обжарке.',
-    subs: [
-      { name: 'Корица', desc: 'Тёплая древесная сладость.' },
-      { name: 'Перец', desc: 'Острая нота, характерна для робусты и некоторых натуралов.' },
-    ],
-  },
-  {
-    name: 'Обжарка',
-    color: '#465055',
-    desc: 'Ноты обжарки: от хлебных до жжёных. Чем темнее roast, тем сильнее эта группа перекрывает происхождение.',
-    subs: [
-      { name: 'Хлебные', desc: 'Свежий хлеб, тост — светлые степени обжарки.' },
-      { name: 'Орехи', desc: 'Миндаль, фундук — средняя обжарка, классика эспрессо-блендов.' },
-      { name: 'Жжёные', desc: 'Табак, дым, уголь — тёмная обжарка. За пределом — горечь.' },
-    ],
-  },
-  {
-    name: 'Зелень',
-    color: '#6f8a1c',
-    desc: 'Растительные ноты. В умеренной дозе — сложность, в избытке — дефект обжарки или недоспелое зерно.',
-    subs: [
-      { name: 'Травы', desc: 'Свежая зелень, оливка — признак недоспелости или quakers.' },
-      { name: 'Овощи', desc: 'Картофельный дефект (PTD), бобовые тона.' },
-    ],
-  },
-  {
-    name: 'Кислотность',
-    color: '#7a69ee',
-    desc: 'Кислотность — структура чашки. Яблочная и винная — хорошо; уксусная — дефект.',
-    subs: [
-      { name: 'Яблочная', desc: 'Чистая malic-кислотность, свежесть зелёного яблока.' },
-      { name: 'Винная', desc: 'Винная, виноградная кислотность — кенийский профиль.' },
-      { name: 'Уксусная', desc: 'Резкая уксусная кислота — дефект ферментации.' },
-    ],
-  },
-  {
-    name: 'Ферментация',
-    color: '#9c2238',
-    desc: 'Ферментированные ноты: от элегантных винных до дефектных. Граница проходит по чистоте чашки.',
-    subs: [
-      { name: 'Вино', desc: 'Винные, ягодно-бродильные ноты контролируемой анаэробики.' },
-      { name: 'Скисшее', desc: 'Уксус, тухлые фрукты — дефект обработки.' },
-    ],
-  },
-];
-
-const CX = 110;
-const CY = 110;
-const R_OUT = 100;
-const R_MID = 62;
-const R_IN = 30;
-
-function polar(r: number, angleDeg: number): [number, number] {
-  const a = ((angleDeg - 90) * Math.PI) / 180;
-  return [CX + r * Math.cos(a), CY + r * Math.sin(a)];
-}
-
-function arcPath(rOut: number, rIn: number, a0: number, a1: number): string {
-  const [x0, y0] = polar(rOut, a0);
-  const [x1, y1] = polar(rOut, a1);
-  const [x2, y2] = polar(rIn, a1);
-  const [x3, y3] = polar(rIn, a0);
-  const large = a1 - a0 > 180 ? 1 : 0;
-  return `M ${x0} ${y0} A ${rOut} ${rOut} 0 ${large} 1 ${x1} ${y1} L ${x2} ${y2} A ${rIn} ${rIn} 0 ${large} 0 ${x3} ${y3} Z`;
-}
+const colorFor = (index: number): string => wheelColors[index % wheelColors.length];
 
 const Wheel: React.FC = () => {
-  const t = useT();
-  const [sel, setSel] = useState<{ cat: Cat; sub?: Sub } | null>(null);
-
-  const n = WHEEL.length;
-  const seg = 360 / n;
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const activeIndex = wheelCategories.findIndex((c) => c.id === activeId);
+  const cat = activeIndex >= 0 ? wheelCategories[activeIndex] : undefined;
 
   return (
-    <div className={styles.wheel}>
-      <h1 className={styles.title}>{t('wheel.title')}</h1>
+    <div className="bg-[#161c1c] text-[#E2DAC2] min-h-screen p-6">
+      <SectionHead kicker="Вкусовое колесо" title="Ароматика кофе" />
 
-      <div className={styles.wheelWrap}>
-        <svg viewBox="0 0 220 220" className={styles.svg} role="img" aria-label={t('wheel.title')}>
-          {WHEEL.map((cat, i) => {
-            const a0 = i * seg + 1;
-            const a1 = (i + 1) * seg - 1;
-            const [lx, ly] = polar((R_OUT + R_MID) / 2, (a0 + a1) / 2);
-            return (
-              <g key={cat.name}>
-                <path
-                  d={arcPath(R_OUT, R_MID, a0, a1)}
-                  fill={cat.color}
-                  stroke="rgba(0,0,0,0.25)"
-                  strokeWidth="0.6"
-                  className={styles.seg}
-                  onClick={() => setSel({ cat })}
-                >
-                  <title>{cat.name}</title>
-                </path>
-                <text x={lx} y={ly} className={styles.catLabel} onClick={() => setSel({ cat })}>
-                  {cat.name}
-                </text>
-                {cat.subs.map((sub, j) => {
-                  const sa0 = a0 + ((a1 - a0) * j) / cat.subs.length;
-                  const sa1 = a0 + ((a1 - a0) * (j + 1)) / cat.subs.length;
-                  return (
-                    <path
-                      key={sub.name}
-                      d={arcPath(R_MID, R_IN, sa0, sa1)}
-                      fill={cat.color}
-                      fillOpacity={sel?.sub === sub ? 1 : 0.55}
-                      stroke="rgba(0,0,0,0.25)"
-                      strokeWidth="0.6"
-                      className={styles.seg}
-                      onClick={() => setSel({ cat, sub })}
-                    >
-                      <title>{sub.name}</title>
-                    </path>
-                  );
-                })}
-              </g>
-            );
-          })}
-          <circle cx={CX} cy={CY} r={R_IN - 2} fill="var(--surface)" stroke="var(--border)" />
-          <text x={CX} y={CY + 4} textAnchor="middle" className={styles.centerLabel}>
-            202f
-          </text>
-        </svg>
+      <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
+        {wheelCategories.map((category, i) => {
+          const color = colorFor(i);
+          const active = activeId === category.id;
+          const style: React.CSSProperties = {
+            borderColor: color,
+            backgroundColor: active ? `${color}20` : '#222a2a',
+            color: active ? color : '#8a979c',
+            ...(active ? { boxShadow: `0 0 14px ${color}50` } : {}),
+          };
+          return (
+            <button
+              key={category.id}
+              onClick={() => setActiveId(active ? null : category.id)}
+              style={style}
+              className="flex flex-col items-center gap-2 px-3 py-4 rounded-xl border transition-all duration-200 anim-pop focus:outline-none"
+            >
+              <span className="text-[10px] font-bold opacity-60">{i + 1}</span>
+              <div className="w-5 h-5 rounded-full" style={{ backgroundColor: color }} />
+              <span className="text-xs font-bold leading-tight text-center">{category.short}</span>
+            </button>
+          );
+        })}
       </div>
 
-      {sel && (
-        <Card>
-          <p className={styles.selCat}>
-            <span className={styles.selDot} style={{ background: sel.cat.color }} />
-            {sel.cat.name}
-            {sel.sub ? ` · ${sel.sub.name}` : ''}
-          </p>
-          <p className={styles.selDesc}>{sel.sub ? sel.sub.desc : sel.cat.desc}</p>
-        </Card>
+      {cat ? (
+        <div className="mt-8 bg-[#222a2a] border border-[#33403f] rounded-xl p-5 anim-rise">
+          <div className="mb-4">
+            <div className="text-xs font-bold text-[#4FBBBC] uppercase tracking-wider mb-2">Нота вкуса</div>
+            <div className="flex flex-wrap gap-2">
+              {cat.notes.map((note, i) => (
+                <Pill key={note} color={colorFor(i)}>
+                  {note}
+                </Pill>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <div className="text-xs font-bold text-[#4FBBBC] uppercase tracking-wider mb-2">Регионы</div>
+            <div className="flex flex-wrap gap-2">
+              {cat.regions.map((region, i) => (
+                <div key={region.name} className="flex items-center gap-2">
+                  <Pill color={colorFor(i + 4)}>{region.name}</Pill>
+                  <span className="text-xs text-[#8a979c]">{region.why}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="pt-4 border-t border-[#33403f]">
+            <div className="text-xs font-bold text-[#EC4624] uppercase tracking-wider mb-1">Как продавать</div>
+            <p className="text-sm text-[#b4bec2] leading-relaxed">
+              Подчеркните ноту <span className="text-[#E2DAC2] font-bold">{cat.notes[0]}</span> — яркая черта профиля, которая цепляет гостя.
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="mt-8 text-center text-[#8a979c] text-sm anim-pop">
+          Выберите категорию, чтобы увидеть ноты, регионы и совет по продажам
+        </div>
       )}
     </div>
   );
