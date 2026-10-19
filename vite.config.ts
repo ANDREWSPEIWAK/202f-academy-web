@@ -5,11 +5,15 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    open: true
+    open: true,
+    allowedHosts: true
+  },
+  resolve: {
+    extensions: ['.mjs', '.mts', '.ts', '.jsx', '.tsx', '.js', '.json']
   },
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'terser'
+    minify: 'esbuild'
   }
 })

@@ -1,0 +1,275 @@
+.training {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.duration {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.back {
+  align-self: flex-start;
+  padding: 8px 12px;
+  margin-left: -12px;
+  border: none;
+  background: transparent;
+  color: var(--accent-text);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.back:hover {
+  background: var(--surface-2);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.taskRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.taskText {
+  min-width: 0;
+}
+
+.taskName {
+  margin: 0;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.taskMeta {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.taskScore {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.taskAttempts {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.sectionLabel {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.goalText {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.factRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.factLabel {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+}
+
+.factList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.target {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--wasabi-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.step:hover {
+  background: var(--surface-2);
+}
+
+.step input {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.stepNum {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.stepText {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.stepDone {
+  text-decoration: line-through;
+  color: var(--text-faint);
+}
+
+.measureHint {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.criteria {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.criterion {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.criterionText {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.scoreButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.scoreBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.scoreOn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--wasabi);
+}
+
+.scorePreview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.scoreValue {
+  font-size: 15px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.savedPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--success-soft);
+}
+
+.savedText {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.savedActions {
+  display: flex;
+  gap: 8px;
+}
+
+.savedActions button {
+  flex: 1;
+}

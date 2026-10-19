@@ -160,14 +160,18 @@ export interface Recipe {
   name: string;
   description: string;
   category: string;
-  ingredients: string[];
-  instructions: string[];
-  brewMethod: string;
-  dose: number;
-  water: number;
-  brewTime: number;
-  rating: number;
+  standard?: string;
+  ingredients: { name: string; amount: number; unit: string }[];
+  method: string;
+  glassType?: string;
+  temperature?: number;
+  rating?: number;
   notes?: string;
-  createdAt: Date;
-  updatedAt: Date;
+  version?: string;
+  brewMethod?: string;
+  dose?: number;
+  water?: number;
+  brewTime?: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 }

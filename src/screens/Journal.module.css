@@ -1,0 +1,271 @@
+.journal {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.formCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionLabel {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ratingLabel {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ratingButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.ratingBtn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: var(--border-strong);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.ratingBtn:active {
+  transform: scale(0.92);
+}
+
+.ratingOn {
+  color: var(--rust);
+}
+
+.formActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.empty {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.entryCard {
+  padding: 0;
+  overflow: hidden;
+}
+
+.entryHead {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.entryMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.entryDate {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.entryRating {
+  font-size: 12px;
+  color: var(--rust);
+  letter-spacing: 1px;
+}
+
+.ratingOff {
+  color: var(--border-strong);
+}
+
+.entryTraining {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.entrySub {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entryBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 14px 14px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detailLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+}
+
+.detailValue {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.detailHighlight {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--wasabi-soft);
+}
+
+.delete {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 6px 10px;
+  border: none;
+  background: transparent;
+  color: var(--heat);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.delete:hover {
+  background: var(--heat-soft);
+}
+
+.compareSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.compareTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.compareCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compareName {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.compareRows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.compareRow {
+  display: grid;
+  grid-template-columns: 32px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.compareIdx {
+  font-weight: 800;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.compareDate {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.compareResult {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.compareRating {
+  color: var(--rust);
+  letter-spacing: 1px;
+}
