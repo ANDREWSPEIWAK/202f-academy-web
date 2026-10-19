@@ -3,7 +3,7 @@ import styles from './Badge.module.css';
 
 type BadgeVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 
-interface BadgeProps {
+interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode;
   variant?: BadgeVariant;
   size?: 'small' | 'medium' | 'large';
@@ -17,4 +17,5 @@ const Badge: React.FC<BadgeProps> = ({ children, variant = 'primary', size = 'me
   );
 };
 
+Badge.displayName = 'Badge';
 export default Badge;

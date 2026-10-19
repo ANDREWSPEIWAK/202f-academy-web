@@ -15,20 +15,19 @@ export const useRecipeStore = create<RecipeState>()(persist(
   (set, get) => ({
     recipes: [],
 
-    addRecipe: (recipe: Recipe) => {
-      const { recipes } = get();
-      recipes.push(recipe);
-      set({ recipes });
-    },
+    addRecipe: (recipe: Recipe) => set((state) => ({
+      recipes: [...state.recipes, recipe]
+    })),
 
-    updateRecipe: (recipe: Recipe) => {
-      const { recipes } = get();
-      const index = recipes.findIndex((r) => r.id === recipe.id);
+    updateRecipe: (recipe: Recipe) => set((state) => {
+      const index = state.recipes.findIndex((r) => r.id === recipe.id);
       if (index !== -1) {
-        recipes[index] = recipe;
-        set({ recipes });
+        const next = [...state.recipes];
+        next[index] = recipe;
+        return { recipes: next };
       }
-    },
+      return {};
+    }),
 
     getRecipe: (id: string) => {
       const { recipes } = get();

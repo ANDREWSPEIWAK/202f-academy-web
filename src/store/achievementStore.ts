@@ -16,31 +16,32 @@ export const useAchievementStore = create<AchievementState>()(persist(
     achievements: new Map(),
     userAchievements: [],
 
-    addAchievement: (achievement: Achievement) => {
-      const { achievements } = get();
-      achievements.set(achievement.id, achievement);
-      set({ achievements });
-    },
+    addAchievement: (achievement: Achievement) => set((state) => {
+      const next = new Map(state.achievements);
+      next.set(achievement.id, achievement);
+      return { achievements: next };
+    }),
 
     getAchievement: (id: string) => {
       const { achievements } = get();
       return achievements.get(id);
     },
 
-    unlockAchievement: (userId: string, achievementId: string) => {
-      const { userAchievements } = get();
-      const exists = userAchievements.some(
+    unlockAchievement: (userId: string, achievementId: string) => set((state) => {
+      const exists = state.userAchievements.some(
         (ua) => ua.userId === userId && ua.achievementId === achievementId
       );
       if (!exists) {
-        userAchievements.push({
-          userId,
-          achievementId,
-          unlockedAt: new Date(),
-        });
-        set({ userAchievements });
+        return {
+          userAchievements: [...state.userAchievements, {
+            userId,
+            achievementId,
+            unlockedAt: new Date(),
+          }]
+        };
       }
-    },
+      return {};
+    }),
 
     getUserAchievements: (userId: string) => {
       const { userAchievements, achievements } = get();

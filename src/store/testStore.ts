@@ -21,17 +21,17 @@ export const useTestStore = create<TestState>()(persist(
     questions: new Map(),
     testAttempts: [],
 
-    addTest: (test: Test) => {
-      const { tests } = get();
-      tests.set(test.id, test);
-      set({ tests });
-    },
+    addTest: (test: Test) => set((state) => {
+      const next = new Map(state.tests);
+      next.set(test.id, test);
+      return { tests: next };
+    }),
 
-    addQuestion: (question: TestQuestion) => {
-      const { questions } = get();
-      questions.set(question.id, question);
-      set({ questions });
-    },
+    addQuestion: (question: TestQuestion) => set((state) => {
+      const next = new Map(state.questions);
+      next.set(question.id, question);
+      return { questions: next };
+    }),
 
     getTest: (testId: string) => {
       const { tests } = get();
@@ -43,11 +43,9 @@ export const useTestStore = create<TestState>()(persist(
       return questions.get(questionId);
     },
 
-    submitTestAttempt: (attempt: TestAttempt) => {
-      const { testAttempts } = get();
-      testAttempts.push(attempt);
-      set({ testAttempts });
-    },
+    submitTestAttempt: (attempt: TestAttempt) => set((state) => ({
+      testAttempts: [...state.testAttempts, attempt]
+    })),
 
     getUserTestAttempts: (userId: string) => {
       const { testAttempts } = get();

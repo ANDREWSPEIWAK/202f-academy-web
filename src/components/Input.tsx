@@ -12,11 +12,10 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, helperText, fullWidth = false, icon, type = 'text', ...props }, ref) => {
-    return (
-      <div className={`${styles.container} ${fullWidth ? styles.fullWidth : ''}`}>
-        {label && <label className={styles.label}>{label}</label>}
+const Input: React.FC<InputProps> = ({ label, error, helperText, fullWidth = false, icon, type = 'text', ...props }, ref) => {
+  return (
+    <div className={`${styles.container} ${fullWidth ? styles.fullWidth : ''}`}>
+      {label && <label className={styles.label}>{label}</label>}
         <div className={styles.inputWrapper}>
           {icon && <span className={styles.icon}>{icon}</span>}
           <input
@@ -29,9 +28,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {error && <span className={styles.errorText}>{error}</span>}
         {helperText && !error && <span className={styles.helperText}>{helperText}</span>}
       </div>
-    );
-  }
-);
+  );
+};
 
 Input.displayName = 'Input';
 export default Input;
