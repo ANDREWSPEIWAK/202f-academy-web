@@ -1,50 +1,45 @@
 .container {
-  width: 100%;
+  /* marginVertical: 8px; */
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.4rem;
+  marginBottom: 4px;
 }
 
 .label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--ink-soft);
+  fontFamily: var(--font-family-body, "'Avenir Next', 'Mulish', 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif");
+  fontSize: var(--font-size-h5, 11px);
+  color: var(--color-text-primary, #6E7F8D);
 }
 
 .percentage {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--ink);
+  fontFamily: var(--font-family-body, "'Avenir Next', 'Mulish', 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif");
+  fontSize: var(--font-size-h5, 11px);
+  color: var(--color-text-primary, #6E7F8D);
 }
 
 .bar {
-  width: 100%;
-  background-color: var(--white-tint);
-  border-radius: var(--radius-sm);
+  height: 4px;
+  backgroundColor: var(--color-card-level1, #EFF2F9);
+  borderRadius: 2px;
   overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.bar.small {
-  height: 6px;
-}
-
-.bar.medium {
-  height: 9px;
-}
-
-.bar.large {
-  height: 12px;
 }
 
 .fill {
   height: 100%;
-  background: var(--wasabi);
-  border-radius: var(--radius-sm);
-  transition: width 0.4s ease;
-  box-shadow: 0 0 8px var(--wasabi-soft);
+  backgroundColor: var(--color-text-primary, #6E7F8D);
+}
+
+.sizeSmall {
+  height: 2px;
+}
+
+.sizeMedium {
+  height: 4px;
+}
+
+.sizeLarge {
+  height: 6px;
 }

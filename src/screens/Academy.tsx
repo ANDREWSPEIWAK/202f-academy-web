@@ -1,13 +1,15 @@
 import React from 'react';
+import styles from './Academy.module.css';
 import Card from '../components/Card';
 import ProgressBar from '../components/ProgressBar';
 import Badge from '../components/Badge';
-import styles from './Academy.module.css';
+import { useT } from '../i18n';
 
 interface AcademyProps {
 }
 
 const Academy: React.FC<AcademyProps> = ({}) => {
+  const t = useT();
   const profile = {
     currentLevel: 'JUNIOR' as const,
     totalProgress: 31,
@@ -28,9 +30,9 @@ const Academy: React.FC<AcademyProps> = ({}) => {
 
   const greeting = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return '🌅 Доброе утро';
-    if (hour < 18) return '☀️ Добрый день';
-    return '🌙 Добрый вечер';
+    if (hour < 12) return t('academy.greeting.morning');
+    if (hour < 18) return t('academy.greeting.day');
+    return t('academy.greeting.evening');
   };
 
   return (

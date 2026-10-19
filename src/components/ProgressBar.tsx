@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ProgressBar.module.css';
+import tokens from '../theme/tokens';
 
 interface ProgressBarProps {
   value: number; // 0-100
@@ -19,18 +20,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const percentage = Math.min((value / max) * 100, 100);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${size === 'small' && styles.sizeSmall} ${size === 'medium' && styles.sizeMedium} ${size === 'large' && styles.sizeLarge}`}>
       {(label || showLabel) && (
         <div className={styles.header}>
           <span className={styles.label}>{label || 'Progress'}</span>
           <span className={styles.percentage}>{Math.round(percentage)}%</span>
         </div>
       )}
-      <div className={`${styles.bar} ${styles[size]}`}>
+      <div className={styles.bar}>
         <div
           className={styles.fill}
           style={{
             width: `${percentage}%`,
+            backgroundColor: tokens.colors.textPrimary,
           }}
         />
       </div>
