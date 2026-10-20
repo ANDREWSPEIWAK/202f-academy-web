@@ -32,18 +32,18 @@ const BrandLogo: React.FC<BrandLogoProps> = ({ size = 'md', className, alt = '20
       }}
     >
       <img
-        src="/logo.png"
+        src="/logo.jpg"
         alt={alt}
         draggable={false}
         loading="eager"
         decoding="async"
-style={{
-           width: '100%',
-           height: '100%',
-           objectFit: 'contain',
-           mixBlendMode: 'lighten',
-           userSelect: 'none',
-         }}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+          mixBlendMode: 'lighten',
+          userSelect: 'none',
+        }}
       />
     </span>
   );
