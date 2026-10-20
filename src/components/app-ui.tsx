@@ -130,7 +130,7 @@ export function SectionHead({ kicker, title, sub }: SectionHeadProps) {
       </p>
       <h1 className="font-display mt-1 text-3xl font-bold tracking-tight">{title}</h1>
       {sub && (
-        <p className="mt-1 text-sm text-muted-foreground">{sub}</p>
+        <p className="mt-1 text-sm text-muted">{sub}</p>
       )}
     </div>
   );
@@ -142,7 +142,7 @@ export interface EmptyNoteProps {
 
 export function EmptyNote({ children }: EmptyNoteProps) {
   return (
-    <p className="py-8 text-center text-sm text-muted-foreground italic">{children}</p>
+    <p className="py-8 text-center text-sm text-muted italic">{children}</p>
   );
 }
 
