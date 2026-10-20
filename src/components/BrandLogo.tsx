@@ -15,10 +15,6 @@ const SIZE_MAP: Record<'sm' | 'md' | 'lg' | 'xl', number> = {
   xl: 96,
 };
 
-/**
- * Официальный бренд-знак 202F: оригинальный рисунок из /logo.jpg.
- * Чёрный фон убирается через mix-blend-mode: lighten, остаётся белая графика.
- */
 const BrandLogo: React.FC<BrandLogoProps> = ({ size = 'md', className, alt = '202F Academy' }) => {
   const px = typeof size === 'number' ? size : SIZE_MAP[size];
   return (
@@ -36,20 +32,18 @@ const BrandLogo: React.FC<BrandLogoProps> = ({ size = 'md', className, alt = '20
       }}
     >
       <img
-        src="/logo.jpg"
-        alt=""
+        src="/logo.png"
+        alt={alt}
         draggable={false}
         loading="eager"
         decoding="async"
-        style={{
-          position: 'absolute',
-          width: '175.2%',
-          maxWidth: 'none',
-          left: '-29.8%',
-          top: '-32.9%',
-          mixBlendMode: 'lighten',
-          userSelect: 'none',
-        }}
+style={{
+           width: '100%',
+           height: '100%',
+           objectFit: 'contain',
+           mixBlendMode: 'lighten',
+           userSelect: 'none',
+         }}
       />
     </span>
   );
