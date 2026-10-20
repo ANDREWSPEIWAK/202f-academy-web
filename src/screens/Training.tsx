@@ -163,7 +163,7 @@ const Training: React.FC<TrainingProps> = ({ initialTaskId }) => {
         <p className={styles.sectionLabel}>{t('training.goal')}</p>
         <p className={styles.goalText}>{lang === 'en' ? task.goalEn : task.goalRu}</p>
         <div className={styles.factRow}>
-          <div className={styles.fact}>
+          <div>
             <p className={styles.factLabel}>{t('training.equipment')}</p>
             <ul className={styles.factList}>
               {task.equipment.map((e) => (
@@ -171,7 +171,7 @@ const Training: React.FC<TrainingProps> = ({ initialTaskId }) => {
               ))}
             </ul>
           </div>
-          <div className={styles.fact}>
+          <div>
             <p className={styles.factLabel}>{t('training.ingredients')}</p>
             <ul className={styles.factList}>
               {task.ingredients.map((i) => (

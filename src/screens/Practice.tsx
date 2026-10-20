@@ -122,7 +122,7 @@ const Practice: React.FC = () => {
           <div className={styles.section}>
             <Card>
               <div className={styles.logForm}>
-                <h3 className={styles.formTitle}>Запись заварки</h3>
+                <h3>Запись заварки</h3>
                 <div className={styles.formGroup}>
                   <Input label="Кофе" placeholder="Название кофе" />
                   <Input label="Происхождение" placeholder="Эфиопия, Кения..." />
@@ -146,7 +146,7 @@ const Practice: React.FC = () => {
           <div className={styles.section}>
             <Card>
               <div className={styles.calculator}>
-                <h3 className={styles.formTitle}>Калькулятор отношения</h3>
+                <h3>Калькулятор отношения</h3>
                 <div className={styles.formGroup}>
                   <Input
                     label="Кофе (г)"
@@ -169,7 +169,7 @@ const Practice: React.FC = () => {
 
             <Card>
               <div className={styles.calculator}>
-                <h3 className={styles.formTitle}>Калькулятор Extraction Yield</h3>
+                <h3>Калькулятор Extraction Yield</h3>
                 <div className={styles.formGroup}>
                   <Input
                     label="Доза (г)"
