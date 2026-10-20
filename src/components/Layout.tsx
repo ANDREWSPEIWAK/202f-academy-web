@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '../lib/utils';
 import { useAuthStore } from '../store/authStore';
-import Logo202 from './Logo202';
+import BrandLogo from './BrandLogo';
 import { ProgressRing } from './app-ui';
 
 export type NavSection =
@@ -134,7 +134,7 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
       <aside className="hidden lg:flex lg:w-60 flex-col border-r border-[#33403f] bg-[#161c1c]/95 backdrop-blur h-screen overflow-y-auto">
         <div className="p-6 flex flex-col gap-6">
           <div className="flex items-center gap-3">
-            <Logo202 size={30} />
+            <BrandLogo size={44} />
             <span className="font-display text-xl font-bold tracking-tighter">
               <span className="text-[#f39120]">202</span><span className="text-[#4fbbbc]">f Academy</span>
             </span>
@@ -171,7 +171,7 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
       <header className="lg:hidden sticky top-0 z-40 bg-[#161c1c]/90 backdrop-blur-md border-b border-[#33403f]">
         <div className="flex items-center justify-between px-4 py-3.5">
           <div className="flex items-center gap-3">
-            <Logo202 size={26} />
+            <BrandLogo size={38} />
             <span className="font-display text-lg font-bold tracking-tighter">
               <span className="text-[#f39120]">202</span><span className="text-[#4fbbbc]">f Academy</span>
             </span>
