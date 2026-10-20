@@ -57,7 +57,7 @@ export function ProgressRing({
             y={size / 2 + 6}
             textAnchor="middle"
             fill="#E2DAC2"
-            fontFamily='"JetBrains Mono", monospace'
+            fontFamily='"Space Mono", ui-monospace, "SF Mono", monospace'
             fontSize={Math.round(size * 0.32)}
             fontWeight="bold"
             letterSpacing="-0.02em"

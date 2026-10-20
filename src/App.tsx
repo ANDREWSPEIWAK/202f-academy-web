@@ -16,6 +16,7 @@ import Training from './screens/Training';
 import Journal from './screens/Journal';
 import Certification from './screens/Certification';
 import Academy from './screens/Academy';
+import More from './screens/More';
 import type { NavSection } from './components/Layout';
 
 const SCREENS: Record<NavSection, React.ComponentType<any>> = {
@@ -23,7 +24,7 @@ const SCREENS: Record<NavSection, React.ComponentType<any>> = {
   path: Path,
   tests: Tests,
   shift: Shift,
-  more: MorePlaceholder,
+  more: More,
   library: Library,
   trainer: Trainer,
   practice: Practice,
@@ -38,22 +39,16 @@ const SCREENS: Record<NavSection, React.ComponentType<any>> = {
   academy: Academy,
 };
 
-function MorePlaceholder() {
-  return (
-    <div className="p-6 text-center text-[#6b6b5c]">
-      <p className="text-sm">Раздел в разработке</p>
-    </div>
-  );
-}
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<NavSection>('path');
+  const [openTaskId, setOpenTaskId] = useState<string | null>(null);
 
   const Screen = SCREENS[activeSection];
 
   return (
     <Layout activeSection={activeSection} onNavigate={setActiveSection}>
-      {Screen && <Screen />}
+      {Screen && (activeSection === "more" ? <Screen onNavigate={setActiveSection} /> : activeSection === "home" ? <Screen onNavigate={setActiveSection} onOpenStep={(id:string)=>{ setOpenTaskId(id); setActiveSection("training"); }} /> : activeSection === "skills" ? <Screen onNavigate={setActiveSection} /> : activeSection === "training" ? <Screen initialTaskId={openTaskId} /> : <Screen />)}
     </Layout>
   );
 }

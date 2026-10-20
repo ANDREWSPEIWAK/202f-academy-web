@@ -129,9 +129,9 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
     );
 
   return (
-    <div className="bg-[#161c1c] text-[#e2dac2] min-h-screen">
+    <div className="bg-[#161c1c] text-[#e2dac2] h-screen flex flex-col lg:flex-row overflow-hidden">
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex lg:w-60 flex-col border-r border-[#33403f] bg-[#161c1c]/95 backdrop-blur">
+      <aside className="hidden lg:flex lg:w-60 flex-col border-r border-[#33403f] bg-[#161c1c]/95 backdrop-blur h-screen overflow-y-auto">
         <div className="p-6 flex flex-col gap-6">
           <div className="flex items-center gap-3">
             <Logo202 size={30} />
@@ -184,7 +184,7 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
         </div>
       </header>
 
-      <main className="pb-20 lg:pb-0 overflow-y-auto">
+      <main className="flex-1 pb-20 lg:pb-0 overflow-y-auto">
         {children}
       </main>
 

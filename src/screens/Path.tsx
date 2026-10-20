@@ -268,7 +268,7 @@ export default function Path(): JSX.Element {
       {openModuleId && (
         <div className="fixed inset-0 z-50" style={{ background: 'rgba(22,28,28,0.75)', backdropFilter: 'blur(8px)' }} onClick={() => setOpenModuleId(null)}>
           <div className="anim-pop mt-10 mb-10 mx-3 lg:mx-20" style={{ background: CARD, border: `1px solid #334545`, borderRadius: '14px' }} onClick={(e) => e.stopPropagation()}>
-            <div className="p-4 flex items-start justify-between border-b border-#334545">
+            <div className="p-4 flex items-start justify-between border-b border-[#334545]">
               <div>
                 <h3 className="text-base font-bold text-cream">{modules.find((m) => m.id === openModuleId)?.title ?? 'Модуль'}</h3>
                 <p className="text-xs text-cream/60 mt-1">{modules.find((m) => m.id === openModuleId)?.subtitle ?? ''}</p>

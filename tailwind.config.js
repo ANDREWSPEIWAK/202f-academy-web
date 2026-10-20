@@ -28,9 +28,9 @@ export default {
         full: '9999px',
       },
       fontFamily: {
-        display: ['"Unbounded"', 'cursive'],
-        body: ['"Manrope"', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['"Space Mono"', 'ui-monospace', '"SF Mono"', 'monospace'],
       },
       fontSize: {
         'tnum': ['0.875rem', { fontVariationSettings: '"tnum" on' }],
