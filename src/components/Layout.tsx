@@ -129,7 +129,7 @@ const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) 
     );
 
   return (
-    <div className="bg-[#161c1c] text-[#e2dac2] h-screen flex flex-col lg:flex-row overflow-hidden">
+    <div className="bg-[#161c1c] text-[#e2dac2] h-screen flex flex-col lg:flex-row overflow-auto">
       {/* Desktop sidebar */}
       <aside className="hidden lg:flex lg:w-60 flex-col border-r border-[#33403f] bg-[#161c1c]/95 backdrop-blur h-screen overflow-y-auto">
         <div className="p-6 flex flex-col gap-6">

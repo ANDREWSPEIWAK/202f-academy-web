@@ -116,7 +116,7 @@
   }
 
   body {
-    overflow: hidden;
+    overflow: auto;
     background-color: var(--bg);
   }
 
