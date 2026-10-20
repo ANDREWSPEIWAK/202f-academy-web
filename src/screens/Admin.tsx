@@ -301,14 +301,14 @@ const Admin: React.FC = () => {
         <h2 className={styles.sectionTitle}>Результаты тестов</h2>
         <div className={styles.testRows}>
           {testRows.map(({ test, result }) => {
-            const step = getStep(test.stepId)!;
+            const step = getStep(test.stepId);
             return (
               <Card key={test.id} className={styles.testRow}>
                 <div className={styles.testRowTop}>
                   <div>
                     <p className={styles.testName}>{test.title}</p>
                     <p className={styles.testMeta}>
-                      {step.level} · Step {step.index} · {STATUS_LABEL[getStepStatus(step, state)]}
+                      {step ? step.level + ' · Step ' + step.index + ' · ' + STATUS_LABEL[getStepStatus(step, state)] : test.stepId}
                     </p>
                   </div>
                   {result ? (

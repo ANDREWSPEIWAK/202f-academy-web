@@ -7,7 +7,8 @@ import styles from './Certification.module.css';
 import { useT } from '../i18n';
 import { useProgressStore, isStepCompleted } from '../store/progressStore';
 import { useTrainingStore, summarizeAll } from '../store/trainingStore';
-import { LEVELS, getStepsByLevel } from '../data/gamification';
+import { getStepsByLevel } from '../data/gamification';
+import { levels as CURRICULUM_LEVELS } from '../data/curriculum';
 import { computeSkillMatrix, averageSkillValue } from '../data/skillMatrix';
 
 interface Requirement {
@@ -52,7 +53,7 @@ const Certification: React.FC = () => {
     const avgSkill = averageSkillValue(metrics);
 
     let prevCertified = true;
-    return LEVELS.map((level) => {
+    return CURRICULUM_LEVELS.map((level) => {
       const steps = getStepsByLevel(level.id);
 
       const levelLessons = steps.flatMap((s) => s.lessonIds);
@@ -67,12 +68,13 @@ const Certification: React.FC = () => {
       const levelTests = steps.map((s) => s.controlTestId);
       const testsPassed = levelTests.filter((id) => progress.testResults[id]?.passed).length;
 
-      const practical = PRACTICAL_TASKS[level.id];
+      const levelKey = level.id.toUpperCase();
+      const practical = PRACTICAL_TASKS[levelKey];
       const practicalDone = practical.ids.filter(
         (id) => (trainingSummary[id]?.bestScore ?? 0) >= practical.threshold
       ).length;
 
-      const skillOk = avgSkill >= SKILL_THRESHOLD[level.id];
+      const skillOk = avgSkill >= SKILL_THRESHOLD[levelKey];
 
       const attestation = steps.find((s) => s.isAttestation);
       const approved = attestation ? isStepCompleted(attestation, progress) : false;
@@ -106,7 +108,7 @@ const Certification: React.FC = () => {
           key: 'skills',
           label: t('certification.req.skills'),
           done: skillOk,
-          detail: `${avgSkill}% ≥${SKILL_THRESHOLD[level.id]}%`,
+          detail: `${avgSkill}% ≥${SKILL_THRESHOLD[levelKey]}%`,
         },
         {
           key: 'approval',
@@ -122,8 +124,8 @@ const Certification: React.FC = () => {
 
       const status: LevelStatus = {
         levelId: level.id,
-        name: level.name,
-        subtitle: level.subtitle,
+        name: level.title,
+        subtitle: level.tagline,
         requirements,
         allDone,
         readyExceptApproval,
