@@ -6,7 +6,7 @@
   font-weight: var(--font-weight-medium, 500);
   white-space: nowrap;
   transition: background-color 0.2s ease;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   /* Default shadow (outer) */
   box-shadow: var(--shadow-outer, 
     -5px -5px 10px #FAFBFF,
