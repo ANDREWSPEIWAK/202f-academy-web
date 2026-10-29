@@ -1,0 +1,36 @@
+.detailCard {
+  background: var(--surface-light);
+  border-radius: 32px;
+  padding: 20px;
+  color: var(--text-on-light);
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.kicker {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-on-light);
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: 'Unbounded', 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--text-on-light);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

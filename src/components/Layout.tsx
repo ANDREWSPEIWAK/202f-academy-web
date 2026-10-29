@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AppHeader from './AppHeader';
+import BottomPill from './BottomPill';
+import BurgerDrawer from './BurgerDrawer';
 import styles from './Layout.module.css';
 
-export type NavSection = 'academy' | 'tests' | 'library' | 'trainer' | 'practice';
+export type NavSection = 'academy' | 'tests' | 'library' | 'trainer' | 'practice' | 'shift' | 'discipline' | 'profile';
 
 interface LayoutProps {
   activeSection: NavSection;
@@ -9,25 +12,34 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const SECTION_TITLES: Record<NavSection, string> = {
-  academy: 'Академия',
-  tests: 'Тесты',
-  library: 'Библиотека',
-  trainer: 'Тренер',
-  practice: 'Практика',
-};
+const Layout: React.FC<LayoutProps> = ({ activeSection, onNavigate, children }) => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-const Layout: React.FC<LayoutProps> = ({ activeSection, children }) => {
-  const title = SECTION_TITLES[activeSection];
+  const handleMenuClick = () => {
+    setIsDrawerOpen(true);
+  };
+
+  const handleProfileClick = () => {
+    onNavigate('profile' as NavSection);
+  };
+
+  const handleDrawerNavigate = (section: any) => {
+    onNavigate(section);
+  };
 
   return (
     <div className={styles.layout}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{title}</h1>
-      </header>
+      <AppHeader onMenuClick={handleMenuClick} onProfileClick={handleProfileClick} />
       <main className={styles.main}>
         {children}
       </main>
+      <BottomPill activeSection={activeSection as any} onNavigate={onNavigate as any} />
+      <BurgerDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        onNavigate={handleDrawerNavigate}
+        activeSection={activeSection}
+      />
     </div>
   );
 };

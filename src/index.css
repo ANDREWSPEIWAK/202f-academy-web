@@ -1,3 +1,18 @@
+:root {
+  --bg: #121212;
+  --surface-light: #E8E6E1;
+  --surface-dark: #1E1E1E;
+  --text: #E8E6E1;
+  --text-on-light: #121212;
+  --text-muted: #A9A9A9;
+  --yellow: #FBC85F;
+  --violet: #5B45F0;
+  --violet-deep: #4F3F7F;
+  --lime: #C9DB8A;
+  --coral: #EE5A55;
+  --border: #444444;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,19 +22,45 @@ body,
 #root {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f1ed;
-  color: #2a2520;
-  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #root {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Unbounded', 'Manrope', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

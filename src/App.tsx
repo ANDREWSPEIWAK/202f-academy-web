@@ -8,7 +8,7 @@ import Trainer from './screens/Trainer';
 import Practice from './screens/Practice';
 import './App.css';
 
-type NavSection = 'academy' | 'tests' | 'library' | 'trainer' | 'practice';
+type NavSection = 'academy' | 'tests' | 'library' | 'trainer' | 'practice' | 'shift' | 'discipline' | 'profile';
 
 function App() {
   const [activeSection, setActiveSection] = useState<NavSection>('academy');
@@ -16,6 +16,9 @@ function App() {
 
   const handleNavigate = (section: NavSection) => {
     setActiveSection(section);
+    if (section !== 'academy') {
+      setShowDashboard(false);
+    }
   };
 
   return (
@@ -30,8 +33,16 @@ function App() {
       {activeSection === 'library' && <Library />}
       {activeSection === 'trainer' && <Trainer />}
       {activeSection === 'practice' && <Practice />}
+      {(activeSection === 'shift' || activeSection === 'discipline' || activeSection === 'profile') && (
+        <div style={{ padding: '20px' }}>
+          <h2 style={{ fontFamily: "'Unbounded', sans-serif", textTransform: 'uppercase', fontSize: '28px' }}>
+            {activeSection === 'shift' ? 'Смена' : activeSection === 'discipline' ? 'Дисциплина' : 'Профиль'}
+          </h2>
+        </div>
+      )}
     </Layout>
   );
 }
 
 export default App;
+

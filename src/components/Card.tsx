@@ -5,14 +5,19 @@ interface CardProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  style?: React.CSSProperties;
   interactive?: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ children, className = '', onClick, interactive = false }) => {
+const Card: React.FC<CardProps> = ({ children, className = '', onClick, style, interactive = false }) => {
+  const isClickable = onClick || interactive;
   return (
     <div
-      className={`${styles.card} ${interactive ? styles.interactive : ''} ${className}`}
+      className={`${styles.card} ${isClickable ? styles.clickable : ''} ${className}`}
       onClick={onClick}
+      style={style}
+      role={isClickable ? 'button' : undefined}
+      tabIndex={isClickable ? 0 : undefined}
     >
       {children}
     </div>
@@ -20,3 +25,4 @@ const Card: React.FC<CardProps> = ({ children, className = '', onClick, interact
 };
 
 export default Card;
+

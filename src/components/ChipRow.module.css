@@ -1,0 +1,12 @@
+.chipRow {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 0 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chipRow::-webkit-scrollbar {
+  display: none;
+}

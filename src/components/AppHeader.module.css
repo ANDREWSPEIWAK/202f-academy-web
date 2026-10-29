@@ -1,0 +1,90 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.iconButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-dark);
+  border: none;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  min-width: 44px;
+  min-height: 44px;
+  transition: box-shadow 0.2s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.iconButton:active {
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,.4);
+  transform: scale(0.98);
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+.logo {
+  font-family: 'Unbounded', 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  text-transform: uppercase;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.logoYellow {
+  color: var(--yellow);
+}
+
+.profileButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--violet);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  min-width: 44px;
+  min-height: 44px;
+  transition: box-shadow 0.2s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.profileButton:active {
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,.4);
+  transform: scale(0.98);
+}
+
+.profileButton:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iconButton,
+  .profileButton {
+    transition: none;
+    animation: none;
+  }
+  .iconButton:active,
+  .profileButton:active {
+    transform: none;
+  }
+}

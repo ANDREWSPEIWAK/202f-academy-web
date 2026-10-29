@@ -1,0 +1,63 @@
+.pill {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  height: 68px;
+  background: var(--surface-light);
+  border-radius: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.navButton {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--text-on-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  min-width: 44px;
+  min-height: 44px;
+  transition: box-shadow 0.2s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.navButton:active {
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,.3);
+  transform: scale(0.98);
+}
+
+.navButton:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+.activeCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #000;
+  color: var(--lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navButton {
+    transition: none;
+    animation: none;
+  }
+  .navButton:active {
+    transform: none;
+  }
+}

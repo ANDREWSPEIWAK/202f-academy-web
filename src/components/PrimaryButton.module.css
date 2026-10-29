@@ -1,0 +1,35 @@
+.button {
+  height: 52px;
+  border-radius: 26px;
+  background: #000;
+  color: var(--text);
+  border: none;
+  padding: 0 32px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  transition: box-shadow 0.2s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.button:active {
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,.4);
+  transform: scale(0.98);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+    animation: none;
+  }
+  .button:active {
+    transform: none;
+  }
+}

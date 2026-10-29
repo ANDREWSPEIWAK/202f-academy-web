@@ -1,0 +1,54 @@
+.tile {
+  background: var(--surface-dark);
+  border-radius: 28px;
+  padding: 16px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.number {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.content {
+  font-family: 'Unbounded', 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+.clickable:active {
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,.4);
+  transform: scale(0.98);
+}
+
+.clickable:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+.selected {
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clickable {
+    transition: none;
+    animation: none;
+  }
+  .clickable:active {
+    transform: none;
+  }
+}

@@ -1,0 +1,42 @@
+.chip {
+  height: 44px;
+  border-radius: 22px;
+  padding: 0 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 44px;
+  min-height: 44px;
+  transition: box-shadow 0.2s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1), background 0.2s ease, color 0.2s ease;
+}
+
+.chip:active {
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,.4);
+  transform: scale(0.98);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+.active {
+  background: var(--lime);
+  color: var(--text-on-light);
+  border-color: var(--lime);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none;
+    animation: none;
+  }
+  .chip:active {
+    transform: none;
+  }
+}

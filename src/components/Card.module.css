@@ -1,18 +1,32 @@
 .card {
-  background-color: #fafaf8;
-  border: 1px solid #e8e1d9;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: var(--surface-dark);
+  border-radius: 32px;
+  padding: 20px;
+  color: var(--text);
 }
 
-.card.interactive {
+.clickable {
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+  min-height: 44px;
 }
 
-.card.interactive:hover {
-  border-color: #d4c9be;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+.clickable:active {
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,.4);
+  transform: scale(0.98);
+}
+
+.clickable:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clickable {
+    transition: none;
+    animation: none;
+  }
+  .clickable:active {
+    transform: none;
+  }
 }
